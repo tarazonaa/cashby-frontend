@@ -1,15 +1,20 @@
 import type { NextPage } from "next";
+import { motion } from "framer-motion";
+import { MotionTransitionVariants } from "../variables";
 
 const logRegisterPage: NextPage = () => {
   return (
-    <div className="logRegisterPage" id="LinkPage">
+    <motion.div
+      className="logRegisterPage"
+      id="LinkPage"
+      variants={MotionTransitionVariants}
+      initial={"InitPosition"}
+      animate={"DesiredPosition"}
+      exit={"ExitPosition"}
+    >
       <h1>logRegisterPage</h1>
       <div className="filler"></div>
-      <div className="filler"></div>
-      <div className="filler"></div>
-      <div className="filler"></div>
-      <div className="filler"></div>
-    </div>
+    </motion.div>
   );
 };
 

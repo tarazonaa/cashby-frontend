@@ -1,0 +1,116 @@
+.GlobalNav {
+  position: relative;
+  z-index: 5;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .logoContainer,
+  ul {
+    position: relative;
+    margin: 0px 5%;
+  }
+
+  .logoContainer {
+    cursor: pointer;
+    width: 150px;
+    height: 80%;
+    @include alignCenter;
+  }
+
+  ul {
+    width: 40%;
+    height: 90%;
+    list-style: none;
+    @include alignCenter;
+    flex-direction: row;
+    justify-content: space-around;
+
+    li {
+      cursor: pointer;
+      background-color: transparent;
+    }
+  }
+
+  .burguer {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    // background-color: lightcoral;
+    right: 40px;
+    visibility: hidden;
+    @include alignCenter;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    div {
+      transition: transform 500ms, opacity 500ms;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .GlobalNav {
+    .burguer {
+      visibility: visible;
+
+      div {
+        position: relative;
+        width: 80%;
+        height: 4px;
+        background-color: black;
+      }
+    }
+
+    .xBurguer {
+      .line1 {
+        transform: translateY(13.5px) rotate(315deg);
+      }
+      .line2 {
+        opacity: 0;
+      }
+      .line3 {
+        transform: translateY(-13.5px) rotate(-315deg);
+      }
+    }
+
+    ul {
+      top: 70px;
+      right: 0;
+      position: absolute;
+      margin: 0;
+      width: 300px;
+      height: calc(100vh - 70px);
+      background-color: black;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      li {
+        margin: 10px 0px;
+        height: 60px;
+        width: 100%;
+        @include alignCenter;
+        justify-content: flex-start;
+
+        a {
+          color: white;
+          padding: 0px 10%;
+        }
+      }
+    }
+  }
+
+  .NavDisplayed {
+    transform: translateX(0px);
+    transition: transform 500ms;
+  }
+  .NavHidden {
+    transform: translateX(300px);
+    transition: transform 500ms;
+  }
+}

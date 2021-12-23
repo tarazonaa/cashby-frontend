@@ -1,15 +1,20 @@
 import type { NextPage } from "next";
+import { motion } from "framer-motion";
+import { MotionTransitionVariants } from "../variables";
 
 const searchPage: NextPage = () => {
   return (
-    <div className="searchPage" id="LinkPage">
+    <motion.div
+      className="searchPage"
+      id="LinkPage"
+      variants={MotionTransitionVariants}
+      initial={"InitPosition"}
+      animate={"DesiredPosition"}
+      exit={"ExitPosition"}
+    >
       <h1>searchPage</h1>
       <div className="filler"></div>
-      <div className="filler"></div>
-      <div className="filler"></div>
-      <div className="filler"></div>
-      <div className="filler"></div>
-    </div>
+    </motion.div>
   );
 };
 
