@@ -23,9 +23,13 @@ const GlobalNav: React.FC = () => {
         </Link>
       </div>
       <ul className={navBarState}>
-        {CreateLink("/publishPage", "Publicar")}
+        {CreateLink("/landsPage", "Lands")}
 
-        {CreateLink("/searchPage", "Buscar")}
+        {CreateLink("/nftsPage", "NFT's")}
+
+        {CreateLink("/guidePage", "Guia")}
+
+        {CreateLink("/aboutPage", "About Cashby")}
 
         {CreateLink("/logRegisterPage", "Inicia Sesión o Registrate")}
       </ul>
