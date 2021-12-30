@@ -22,7 +22,7 @@ const InitBlock: React.FC = () => {
         </div>
       </div>
       <div className="rightContainer">
-        <h1>Be part of Cashby's community</h1>
+        <h1>{"Be part of Cashby's community"}</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat
           doloremque maiores praesentium, eum quia veniam accusamus ullam sint

@@ -451,4 +451,76 @@
   -webkit-transition: color 500ms;
   transition: color 500ms;
 }
+
+.LogRegisterPage form {
+  position: relative;
+  width: 400px;
+  height: 70%;
+  border: 2px solid white;
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  border-radius: 20px;
+}
+
+.LogRegisterPage form h3 {
+  text-align: center;
+}
+
+.LogRegisterPage form ul {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.LogRegisterPage form ul li {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.LogRegisterPage form ul li > * {
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.LogRegisterPage form ul li label {
+  color: var(--TextGenericColor);
+}
+
+.LogRegisterPage form ul li input {
+  padding: 5px 0px;
+  outline: none;
+  border: none;
+}
 /*# sourceMappingURL=index.css.map */

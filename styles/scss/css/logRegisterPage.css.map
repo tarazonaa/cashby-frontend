@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACE,gBADc,CACd,IAAI,CAAC;EACH,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,GAAG;EACX,gBAAgB,EAAE,yBAAyB;EAC3C,eAAe,EAAE,SAAS;CAM3B;;AAZH,AAQI,gBARY,CACd,IAAI,CAOF,EAAE,CAAC;EACD,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CACb",
+    "sources": [
+        "../modules/logRegisterPage.scss"
+    ],
+    "names": [],
+    "file": "logRegisterPage.css"
+}

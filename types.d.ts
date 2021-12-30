@@ -1,3 +1,5 @@
 type NavBarState = "NavDisplayed" | "NavHidden";
 
-export { NavBarState };
+type FormDisplayed = "Log In" | "Register";
+
+export { NavBarState, FormDisplayed };
