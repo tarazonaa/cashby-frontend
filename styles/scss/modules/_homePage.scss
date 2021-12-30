@@ -9,6 +9,28 @@
     display: flex;
     flex-wrap: wrap;
 
+    .bgBoxes {
+      z-index: -1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+
+      span {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background-color: var(--PrimaryColor);
+        opacity: 0;
+      }
+
+      // .box1 {
+      //   opacity: 0.5;
+      //   left: 0px;
+      //   bottom: 0px;
+      // }
+    }
+
     .leftContainer,
     .rightContainer {
       flex: 1;
@@ -16,14 +38,21 @@
     }
 
     .leftContainer {
+      background: linear-gradient(
+        to bottom,
+        transparent 15%,
+        var(--PrimaryColor),
+        var(--TertiaryColor)
+      );
+
       .AnimationContainer {
-        width: 600px;
-        height: 600px;
-        border-radius: 50%;
-        overflow: hidden;
+        width: 100%;
+        height: 100%;
         @include alignCenter;
-        background-color: black;
-        border: 1px solid white;
+
+        > * {
+          transform: scale(1.5);
+        }
       }
     }
 
@@ -31,11 +60,19 @@
       flex-direction: column;
 
       > * {
+        position: relative;
         margin: 40px 15%;
       }
 
       h1 {
-        color: var(--TertiaryColor);
+        background: linear-gradient(
+          to right,
+          var(--PrimaryColor),
+          var(--TertiaryColor)
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
 
       p {
@@ -43,15 +80,26 @@
         line-height: 30px;
       }
 
-      button {
-        padding: 15px 35px;
-        margin-right: auto;
-        outline: none;
-        border: none;
-        font-weight: bolder;
-        border-radius: 10px;
-        font-size: 1.2rem;
-        background-color: var(--TertiaryColor);
+      .buttonsBox {
+        @include alignCenter;
+        flex-direction: row;
+        justify-content: flex-start;
+        position: relative;
+        width: 70%;
+
+        button {
+          color: var(--TextGenericColor);
+          padding: 15px 35px;
+          margin: 0px 15px;
+
+          &:nth-child(1) {
+            @include GenericButtonStyle(var(--TertiaryColor));
+          }
+
+          &:nth-child(2) {
+            @include GenericButtonStyle(var(--PrimaryColor));
+          }
+        }
       }
     }
   }

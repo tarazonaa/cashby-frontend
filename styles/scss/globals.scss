@@ -1,17 +1,12 @@
-:root {
-  --PrimaryColor: #2271b3;
-  --SecondaryColor: #61cbb0;
-  --TertiaryColor: #6fb544;
-  --BGColor: #020217;
-  --TextGenericColor: white;
-}
+@import "./themes/colors";
 
 html,
 body {
   padding: 0;
   margin: 0;
   overflow: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: var(--BGColor);
   /* --PrimaryColor: #2271b3;
   --SecondaryColor: #6fb544; */
@@ -34,7 +29,6 @@ a {
   overflow: hidden;
   width: 100vw;
   height: calc(100vh - 70px);
-  display: -ms-grid;
   display: grid;
   place-items: center;
 }
@@ -66,4 +60,3 @@ p,
 button {
   font-size: 1rem;
 }
-/*# sourceMappingURL=globals.css.map */

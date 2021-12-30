@@ -1,12 +1,13 @@
 import React from "react";
-import lightHouse from "./../../assets/lightHouse.json";
-import { useLottie } from "lottie-react";
+import interiorDesign from "./../../assets/interior-design.json";
+import { LottieOptions, useLottie } from "lottie-react";
 
 const LottieAnimation = () => {
-  const options = {
-    animationData: lightHouse,
-    loop: true,
+  const options: LottieOptions = {
+    animationData: interiorDesign,
+    loop: false,
     autoplay: true,
+    initialSegment: [30, 100],
   };
   const { View } = useLottie(options);
   return View;
@@ -28,7 +29,16 @@ const InitBlock: React.FC = () => {
           itaque quibusdam laboriosam vel id blanditiis, ipsum dolor, saepe
           possimus libero? Repellendus?
         </p>
-        <button>Start Now!</button>
+        <div className="buttonsBox">
+          <button>Empieza Ahora</button>
+          <button>Follow Us</button>
+        </div>
+      </div>
+      <div className="bgBoxes">
+        <span className="box1" />
+        <span className="box2" />
+        <span className="box3" />
+        <span className="box4" />
       </div>
     </section>
   );
