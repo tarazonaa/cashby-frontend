@@ -452,11 +452,25 @@
   transition: color 500ms;
 }
 
+.LogRegisterPage {
+  display: none;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.LogRegisterPage form,
+.LogRegisterPage .lottieContainer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  height: 80%;
+}
+
 .LogRegisterPage form {
   position: relative;
-  width: 400px;
-  height: 70%;
-  border: 2px solid white;
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
   border-radius: 20px;
@@ -522,5 +536,69 @@
   padding: 5px 0px;
   outline: none;
   border: none;
+}
+
+.LogRegisterPage form ul li .button {
+  cursor: pointer;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid transparent;
+  -webkit-transition: background-color 500ms, border 500ms, color 500ms;
+  transition: background-color 500ms, border 500ms, color 500ms;
+  background-color: var(--BGColor);
+  border: 1px solid var(--SecondaryColor);
+  color: var(--SecondaryColor);
+}
+
+.LogRegisterPage form ul li .button a,
+.LogRegisterPage form ul li .button p {
+  color: var(--SecondaryColor);
+}
+
+.LogRegisterPage form ul li .button::after {
+  opacity: 0;
+}
+
+.LogRegisterPage form ul li .button:hover {
+  -webkit-transition: background-color 500ms, border 500ms, color 500ms;
+  transition: background-color 500ms, border 500ms, color 500ms;
+  background-color: var(--SecondaryColor);
+  color: var(--BGColor);
+}
+
+.LogRegisterPage form ul li .button:hover a,
+.LogRegisterPage form ul li .button:hover p {
+  color: var(--BGColor);
+  -webkit-transition: color 500ms;
+  transition: color 500ms;
+}
+
+.LogRegisterPage form::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 5px;
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--PrimaryColor)), to(var(--TertiaryColor)));
+  background: linear-gradient(to bottom, var(--PrimaryColor), var(--TertiaryColor));
+}
+
+.LogRegisterPage .lottieContainer {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.LogRegisterPage .lottieContainer > * {
+  -webkit-transform: scale(10);
+          transform: scale(10);
 }
 /*# sourceMappingURL=index.css.map */

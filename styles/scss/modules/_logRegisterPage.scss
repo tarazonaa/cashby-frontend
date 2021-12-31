@@ -1,10 +1,17 @@
 .LogRegisterPage {
+  display: none;
+  display: flex !important;
+  flex-wrap: wrap;
+
+  form,
+  .lottieContainer {
+    flex: 1 1;
+    height: 80%;
+  }
+
   form {
     position: relative;
-    width: 400px;
-    height: 70%;
     // background-color: rgba(81, 228, 214, 0.3);
-    border: 2px solid white;
     backdrop-filter: blur(2px);
     border-radius: 20px;
 
@@ -41,7 +48,34 @@
           outline: none;
           border: none;
         }
+
+        .button {
+          @include GenericButtonStyle(var(--SecondaryColor));
+        }
       }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 5px;
+      background: linear-gradient(
+        to bottom,
+        var(--PrimaryColor),
+        var(--TertiaryColor)
+      );
+    }
+  }
+
+  .lottieContainer {
+    position: relative;
+    @include alignCenter;
+
+    > * {
+      transform: scale(10);
     }
   }
 }
