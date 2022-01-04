@@ -26,11 +26,10 @@ a {
 #LinkPage {
   z-index: 0;
   position: relative;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   width: 100vw;
   height: calc(100vh - 70px);
-  display: grid;
-  place-items: center;
 }
 
 h1,
@@ -40,7 +39,8 @@ h4,
 h5,
 p,
 a,
-button {
+button,
+li {
   color: var(--TextGenericColor);
 }
 
@@ -49,11 +49,11 @@ h1 {
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 p,

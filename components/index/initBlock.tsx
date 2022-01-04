@@ -1,6 +1,12 @@
 import React from "react";
 import interiorDesign from "./../../assets/interior-design.json";
 import { LottieOptions, useLottie } from "lottie-react";
+import { motion } from "framer-motion";
+import {
+  FadeRightTransitionVariants,
+  StaggerContainer,
+  StaggerChildren,
+} from "../../constants";
 
 const LottieAnimation = () => {
   const options: LottieOptions = {
@@ -16,24 +22,38 @@ const LottieAnimation = () => {
 const InitBlock: React.FC = () => {
   return (
     <section className="InitBlock">
-      <div className="leftContainer">
+      <motion.div
+        className="leftContainer"
+        variants={FadeRightTransitionVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
         <div className="AnimationContainer">
           <LottieAnimation />
         </div>
-      </div>
-      <div className="rightContainer">
-        <h1>{"Be part of Cashby's community"}</h1>
-        <p>
+      </motion.div>
+      <motion.div
+        className="rightContainer"
+        variants={StaggerContainer}
+        initial="hidden"
+        animate="show"
+        exit="exit"
+      >
+        <motion.h1 variants={StaggerChildren}>
+          {"Be part of Cashby's community"}
+        </motion.h1>
+        <motion.p variants={StaggerChildren}>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat
           doloremque maiores praesentium, eum quia veniam accusamus ullam sint
           itaque quibusdam laboriosam vel id blanditiis, ipsum dolor, saepe
           possimus libero? Repellendus?
-        </p>
-        <div className="buttonsBox">
+        </motion.p>
+        <motion.div className="buttonsBox" variants={StaggerChildren}>
           <button>Empieza Ahora</button>
           <button>Follow Us</button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       <div className="bgBoxes">
         <span className="box1" />
         <span className="box2" />

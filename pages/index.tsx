@@ -1,20 +1,20 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { motion } from "framer-motion";
-import { MotionTransitionVariants } from "../variables";
+import { FadeInTransitionVariants } from "../constants";
 
 // Components
 import InitBlock from "../components/index/initBlock";
+import SecondBlock from "../components/index/secondBlock";
+import ThirdBlock from "../components/index/thirdBlock";
 
 const Home: NextPage = () => {
   return (
     <motion.div
       className="IndexPage"
       id="LinkPage"
-      variants={MotionTransitionVariants}
-      initial={"InitPosition"}
-      animate={"DesiredPosition"}
-      exit={"ExitPosition"}
+      variants={FadeInTransitionVariants}
+      exit="exit"
     >
       <Head>
         <title>Cashby - Home</title>
@@ -25,6 +25,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <InitBlock />
+      <SecondBlock />
+      <ThirdBlock />
     </motion.div>
   );
 };

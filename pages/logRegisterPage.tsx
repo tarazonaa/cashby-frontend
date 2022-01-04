@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { motion } from "framer-motion";
-import { MotionTransitionVariants } from "../variables";
+import { FadeInTransitionVariants } from "../constants";
 import { FormDisplayed, PasswordState } from "../types";
 import { useState } from "react";
 import userLogin from "../assets/user-login.json";
@@ -28,10 +28,10 @@ const LogRegisterPage: NextPage = () => {
     <motion.div
       id="LinkPage"
       className="LogRegisterPage"
-      variants={MotionTransitionVariants}
-      initial={"InitPosition"}
-      animate={"DesiredPosition"}
-      exit={"ExitPosition"}
+      variants={FadeInTransitionVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
     >
       <form
         onSubmit={(e) => {

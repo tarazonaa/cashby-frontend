@@ -13,6 +13,13 @@
   }
 }
 
+@mixin GradientColorText($color1, $color2, $direction) {
+  background: linear-gradient(to $direction, $color1, $color2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @mixin GenericButtonStyle($color-value) {
   cursor: pointer;
   border-radius: 10px;
