@@ -32,6 +32,10 @@ const InitBlock: React.FC = () => {
         <div className="AnimationContainer">
           <LottieAnimation />
         </div>
+
+        <div className="hexagon1" />
+        <div className="hexagon2" />
+        <div className="hexagon3" />
       </motion.div>
       <motion.div
         className="rightContainer"

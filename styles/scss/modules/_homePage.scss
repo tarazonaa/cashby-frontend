@@ -38,16 +38,106 @@
     }
 
     .leftContainer {
-      background: linear-gradient(
-        to bottom,
-        transparent 15%,
-        var(--PrimaryColor),
-        var(--TertiaryColor)
-      );
+      .hexagon1,
+      .hexagon2,
+      .hexagon3 {
+        opacity: 0.8;
+      }
+
+      .hexagon1 {
+        position: absolute;
+        width: 600px;
+        height: 346.41px;
+        background-color: var(--PrimaryColor);
+        margin: 173.21px 0;
+        margin-left: 15px;
+        z-index: 2;
+      }
+
+      .hexagon1:before,
+      .hexagon1:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 300px solid transparent;
+        border-right: 300px solid transparent;
+      }
+
+      .hexagon1:before {
+        bottom: 100%;
+        border-bottom: 173.21px solid var(--PrimaryColor);
+      }
+
+      .hexagon1:after {
+        top: 100%;
+        width: 0;
+        border-top: 173.21px solid var(--PrimaryColor);
+      }
+
+      .hexagon2 {
+        position: absolute;
+        width: 650px;
+        height: 375.28px;
+        background-color: var(--SecondaryColor);
+        margin: 187.64px 0;
+        margin-left: 15px;
+        z-index: 1;
+      }
+
+      .hexagon2:before,
+      .hexagon2:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 325px solid transparent;
+        border-right: 325px solid transparent;
+      }
+
+      .hexagon2:before {
+        bottom: 100%;
+        border-bottom: 187.64px solid var(--SecondaryColor);
+      }
+
+      .hexagon2:after {
+        top: 100%;
+        width: 0;
+        border-top: 187.64px solid var(--SecondaryColor);
+      }
+
+      .hexagon3 {
+        z-index: 0;
+        position: absolute;
+        width: 700px;
+        height: 404.15px;
+        background-color: var(--TertiaryColor);
+        margin: 202.07px 0;
+        margin-left: 15px;
+      }
+
+      .hexagon3:before,
+      .hexagon3:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 350px solid transparent;
+        border-right: 350px solid transparent;
+      }
+
+      .hexagon3:before {
+        bottom: 100%;
+        border-bottom: 202.07px solid var(--TertiaryColor);
+      }
+
+      .hexagon3:after {
+        top: 100%;
+        width: 0;
+        border-top: 202.07px solid var(--TertiaryColor);
+      }
 
       .AnimationContainer {
         width: 100%;
         height: 100%;
+        z-index: 3;
         @include alignCenter;
 
         > * {
@@ -147,13 +237,73 @@
 
     .rightContainer {
       position: relative;
-      border: 1px solid lightcoral;
+      overflow: hidden;
 
       .gltfContainer {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        border: 1px solid lightblue;
+        opacity: 1;
+        z-index: 1;
+      }
+
+      .hologramBase {
+        position: absolute;
+        bottom: 5%;
+        width: 70%;
+        height: 25%;
+        opacity: 1;
+        // background-color: #58d2fe;
+        // box-shadow: 0px -10px 10px #58d2fe;
+        border-radius: 50%;
+        z-index: 0;
+        border-bottom: 20px solid rgb(65, 64, 64);
+      }
+
+      .blush {
+        position: absolute;
+        z-index: 0;
+        width: 8%;
+        margin-right: 20px;
+        height: 70%;
+        border-radius: 30%;
+        opacity: 1;
+        // background-color: #58d2fe;
+        // box-shadow: 0px 0px 200px #58d2fe;
+      }
+
+      .leftArrow,
+      .rightArrow {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        @include alignCenter;
+        cursor: pointer;
+        z-index: 2;
+
+        svg {
+          width: 100%;
+          height: 100%;
+          fill: white;
+          transition: filter 500ms;
+        }
+      }
+      .leftArrow {
+        left: 8%;
+
+        svg {
+          fill: var(--PrimaryColor);
+        }
+
+        &:hover {
+          svg {
+            transition: filter 500ms;
+            filter: drop-shadow(0px 0px 20px var(--PrimaryColor));
+          }
+        }
+      }
+      .rightArrow {
+        right: 8%;
+        svg {
+          fill: var(--TertiaryColor);
+        }
       }
     }
   }
