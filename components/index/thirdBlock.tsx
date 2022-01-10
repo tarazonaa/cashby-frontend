@@ -1,10 +1,13 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React, { useState, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { NFT } from "../../types";
 import anime from "animejs";
 
+import MarkZuckerberg from "../../assets/Models/MarkZuckerberg";
+import JackMa from "../../assets/Models/JackMa";
+import RichardBranson from "../../assets/Models/RichardBranson";
 import IndianCEO from "../../assets/Models/IndianCEO";
-import MarkZuckerberg from "../../assets/Models/markZuckerberg";
+import AllInOne from "../../assets/Models/AllInOne";
 
 const ThirdBlock: React.FC = () => {
   const [selectedNFT, setSelectedNFT] = useState<number>(0);
@@ -12,6 +15,7 @@ const ThirdBlock: React.FC = () => {
     {
       rarity: "Gen 0",
       color: "#fffdf2",
+      model: <IndianCEO position={[-1, 1, -18]} />,
       perks: [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem1",
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem2",
@@ -22,6 +26,7 @@ const ThirdBlock: React.FC = () => {
     {
       rarity: "Common",
       color: "#45e3ff",
+      model: <JackMa position={[-1, 1, -18]} />,
       perks: [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem1",
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem2",
@@ -32,6 +37,7 @@ const ThirdBlock: React.FC = () => {
     {
       rarity: "Rare",
       color: "#85ff80",
+      model: <RichardBranson position={[-1, 1, -18]} />,
       perks: [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem1",
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem2",
@@ -42,6 +48,7 @@ const ThirdBlock: React.FC = () => {
     {
       rarity: "Super Rare",
       color: "#ae6fff",
+      model: <MarkZuckerberg position={[-1, 1, -18]} />,
       perks: [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem1",
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem2",
@@ -52,7 +59,7 @@ const ThirdBlock: React.FC = () => {
     {
       rarity: "Legendary",
       color: "#ffaa38",
-      // color: "#cd8b00",
+      model: <AllInOne position={[-1, 1, -18]} />,
       perks: [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem1",
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem2",
@@ -62,32 +69,8 @@ const ThirdBlock: React.FC = () => {
     },
   ]);
 
-  // useEffect(() => {
-
-  // }, [selectedNFT, setSelectedNFT]);
-
   const changeNFTDisplayed = (direction: "left" | "right") => {
     if (direction === "left") {
-      const tl = anime.timeline({
-        easing: "linear",
-      });
-
-      tl.add({
-        targets: [".gltfContainer", ".blush"],
-        duration: 500,
-        translateX: [0, -500],
-        opacity: [1, 0],
-      });
-      tl.add(
-        {
-          targets: [".gltfContainer", ".blush"],
-          duration: 500,
-          translateX: [500, 0],
-          opacity: [0, 1],
-        },
-        "+=0"
-      );
-    } else {
       const tl = anime.timeline({
         easing: "linear",
       });
@@ -103,6 +86,26 @@ const ThirdBlock: React.FC = () => {
           targets: [".gltfContainer", ".blush"],
           duration: 500,
           translateX: [-500, 0],
+          opacity: [0, 1],
+        },
+        "+=0"
+      );
+    } else {
+      const tl = anime.timeline({
+        easing: "linear",
+      });
+
+      tl.add({
+        targets: [".gltfContainer", ".blush"],
+        duration: 500,
+        translateX: [0, -500],
+        opacity: [1, 0],
+      });
+      tl.add(
+        {
+          targets: [".gltfContainer", ".blush"],
+          duration: 500,
+          translateX: [500, 0],
           opacity: [0, 1],
         },
         "+=0"
@@ -156,13 +159,7 @@ const ThirdBlock: React.FC = () => {
             color={NFTClasses[selectedNFT].color}
             shadow-camera-far={50}
           />
-          <Suspense fallback={null}>
-            {selectedNFT === 0 ? (
-              <IndianCEO position={[-1, 1, -18]} />
-            ) : (
-              <MarkZuckerberg position={[-1, 1, -18]} />
-            )}
-          </Suspense>
+          <Suspense fallback={null}>{NFTClasses[selectedNFT].model}</Suspense>
         </Canvas>
         <div
           className="hologramBase"
@@ -177,7 +174,6 @@ const ThirdBlock: React.FC = () => {
           style={{
             backgroundColor: NFTClasses[selectedNFT].color,
             boxShadow: `0px 0px 200px${NFTClasses[selectedNFT].color}`,
-            // transition: "all 500ms",
           }}
         />
 

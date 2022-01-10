@@ -1,26 +1,37 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { NavBarState } from "../types";
+import LogoCashby from "../assets/Images/logoCashby.png";
+import Image from "next/image";
 
 const GlobalNav: React.FC = () => {
   const [navBarState, setNavBarState] = useState<NavBarState>("NavHidden");
 
   const CreateLink = (href: string, title: string) => {
-    return (
-      <li onClick={() => setNavBarState("NavHidden")}>
-        <Link href={href}>
-          <a>{title}</a>
-        </Link>
-      </li>
-    );
+    if (title === "About Cashby") {
+      return (
+        <li onClick={() => setNavBarState("NavHidden")}>
+          <a href="#SecondBlock">{title}</a>
+        </li>
+      );
+    } else {
+      return (
+        <li onClick={() => setNavBarState("NavHidden")}>
+          <Link href={href}>
+            <a>{title}</a>
+          </Link>
+        </li>
+      );
+    }
   };
 
   return (
     <div className="GlobalNav">
       <div className="logoContainer">
         <Link href="/">
-          <a>Logo Here</a>
+          <Image width={50} height={50} alt="cashby logo" src={LogoCashby} />
         </Link>
+        <p>Cashby</p>
       </div>
       <ul className={navBarState}>
         {CreateLink("/landsPage", "Lands")}

@@ -1,23 +1,12 @@
 import React from "react";
-import interiorDesign from "./../../assets/interior-design.json";
-import { LottieOptions, useLottie } from "lottie-react";
+import interiorDesign from "./../../assets/LottieFiles/interior-design.json";
 import { motion } from "framer-motion";
 import {
   FadeRightTransitionVariants,
   StaggerContainer,
   StaggerChildren,
 } from "../../constants";
-
-const LottieAnimation = () => {
-  const options: LottieOptions = {
-    animationData: interiorDesign,
-    loop: false,
-    autoplay: true,
-    initialSegment: [30, 100],
-  };
-  const { View } = useLottie(options);
-  return View;
-};
+import LottieContainer from "../LottieContainer";
 
 const InitBlock: React.FC = () => {
   return (
@@ -30,7 +19,14 @@ const InitBlock: React.FC = () => {
         exit="exit"
       >
         <div className="AnimationContainer">
-          <LottieAnimation />
+          <LottieContainer
+            lottieSelected={interiorDesign}
+            lottieData={{
+              autoplay: true,
+              loop: false,
+              initialSegment: [30, 100],
+            }}
+          />
         </div>
 
         <div className="hexagon1" />

@@ -1,8 +1,20 @@
+@keyframes slideRight {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-35%);
+  }
+}
+
 .IndexPage {
+  scroll-behavior: smooth;
+
   section {
     position: relative;
     width: 100%;
     height: 100%;
+    margin-bottom: 100px;
   }
 
   .InitBlock {
@@ -23,12 +35,6 @@
         background-color: var(--PrimaryColor);
         opacity: 0;
       }
-
-      // .box1 {
-      //   opacity: 0.5;
-      //   left: 0px;
-      //   bottom: 0px;
-      // }
     }
 
     .leftContainer,
@@ -38,20 +44,13 @@
     }
 
     .leftContainer {
-      .hexagon1,
-      .hexagon2,
-      .hexagon3 {
-        opacity: 0.8;
-      }
-
       .hexagon1 {
         position: absolute;
-        width: 600px;
-        height: 346.41px;
+        z-index: 3;
+        width: 550px;
+        height: 317.54px;
         background-color: var(--PrimaryColor);
-        margin: 173.21px 0;
-        margin-left: 15px;
-        z-index: 2;
+        margin: 158.77px 0;
       }
 
       .hexagon1:before,
@@ -59,29 +58,28 @@
         content: "";
         position: absolute;
         width: 0;
-        border-left: 300px solid transparent;
-        border-right: 300px solid transparent;
+        border-left: 275px solid transparent;
+        border-right: 275px solid transparent;
       }
 
       .hexagon1:before {
         bottom: 100%;
-        border-bottom: 173.21px solid var(--PrimaryColor);
+        border-bottom: 158.77px solid var(--PrimaryColor);
       }
 
       .hexagon1:after {
         top: 100%;
         width: 0;
-        border-top: 173.21px solid var(--PrimaryColor);
+        border-top: 158.77px solid var(--PrimaryColor);
       }
 
       .hexagon2 {
-        position: absolute;
-        width: 650px;
-        height: 375.28px;
+        position: relative;
+        width: 580px;
+        height: 334.86px;
         background-color: var(--SecondaryColor);
-        margin: 187.64px 0;
-        margin-left: 15px;
-        z-index: 1;
+        margin: 167.43px 0;
+        z-index: 2;
       }
 
       .hexagon2:before,
@@ -89,29 +87,28 @@
         content: "";
         position: absolute;
         width: 0;
-        border-left: 325px solid transparent;
-        border-right: 325px solid transparent;
+        border-left: 290px solid transparent;
+        border-right: 290px solid transparent;
       }
 
       .hexagon2:before {
         bottom: 100%;
-        border-bottom: 187.64px solid var(--SecondaryColor);
+        border-bottom: 167.43px solid var(--SecondaryColor);
       }
 
       .hexagon2:after {
         top: 100%;
         width: 0;
-        border-top: 187.64px solid var(--SecondaryColor);
+        border-top: 167.43px solid var(--SecondaryColor);
       }
 
       .hexagon3 {
-        z-index: 0;
-        position: absolute;
-        width: 700px;
-        height: 404.15px;
+        position: relative;
+        width: 610px;
+        height: 352.18px;
         background-color: var(--TertiaryColor);
-        margin: 202.07px 0;
-        margin-left: 15px;
+        margin: 176.09px 0;
+        z-index: 1;
       }
 
       .hexagon3:before,
@@ -119,25 +116,33 @@
         content: "";
         position: absolute;
         width: 0;
-        border-left: 350px solid transparent;
-        border-right: 350px solid transparent;
+        border-left: 305px solid transparent;
+        border-right: 305px solid transparent;
       }
 
       .hexagon3:before {
         bottom: 100%;
-        border-bottom: 202.07px solid var(--TertiaryColor);
+        border-bottom: 176.09px solid var(--TertiaryColor);
       }
 
       .hexagon3:after {
         top: 100%;
         width: 0;
-        border-top: 202.07px solid var(--TertiaryColor);
+        border-top: 176.09px solid var(--TertiaryColor);
+      }
+
+      .hexagon1,
+      .hexagon2,
+      .hexagon3 {
+        position: absolute;
+        opacity: 1;
+        margin-left: 15px;
       }
 
       .AnimationContainer {
         width: 100%;
         height: 100%;
-        z-index: 3;
+        z-index: 4;
         @include alignCenter;
 
         > * {
@@ -176,8 +181,9 @@
 
         button {
           color: var(--TextGenericColor);
-          padding: 15px 35px;
+          padding: 20px 40px;
           margin: 0px 15px;
+          font-weight: bolder;
 
           &:nth-child(1) {
             @include GenericButtonStyle(var(--TertiaryColor));
@@ -186,6 +192,82 @@
           &:nth-child(2) {
             @include GenericButtonStyle(var(--PrimaryColor));
           }
+        }
+      }
+    }
+  }
+
+  .SecondBlock {
+    @include alignCenter;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    h1 {
+      @include GradientColorText(
+        var(--PrimaryColor),
+        var(--TertiaryColor),
+        bottom
+      );
+      text-align: center;
+      margin: 2.5% 0px;
+    }
+
+    .mainContainer,
+    .bottomContainer {
+      // border: 1px solid lightcoral;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .mainContainer {
+      height: 50%;
+      .leftContainer,
+      .rightContainer {
+        flex: 1 1;
+        @include alignCenter;
+        max-height: 100%;
+      }
+
+      .leftContainer {
+        > * {
+          position: absolute;
+          transform: scale(0.8);
+        }
+      }
+      .rightContainer {
+        @include alignCenter;
+
+        p {
+          margin: 0px 45px;
+          line-height: 40px;
+        }
+      }
+    }
+
+    .bottomContainer {
+      position: relative;
+      overflow: hidden;
+      height: 18%;
+
+      .slider {
+        position: relative;
+        height: 100%;
+        @include alignCenter;
+        flex-direction: row;
+        animation: slideRight 20s linear infinite alternate;
+        background: linear-gradient(
+          to right,
+          var(--PrimaryColor),
+          var(--TertiaryColor)
+        );
+
+        > * {
+          height: 100%;
+          margin: 0px 20px;
+          padding: 0px 20px;
+          // border: 1px solid lightcoral;
+          @include alignCenter;
         }
       }
     }
@@ -237,7 +319,8 @@
 
     .rightContainer {
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: visible;
 
       .gltfContainer {
         opacity: 1;
@@ -303,6 +386,13 @@
         right: 8%;
         svg {
           fill: var(--TertiaryColor);
+        }
+
+        &:hover {
+          svg {
+            transition: filter 500ms;
+            filter: drop-shadow(0px 0px 20px var(--TertiaryColor));
+          }
         }
       }
     }

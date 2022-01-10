@@ -3,19 +3,8 @@ import { motion } from "framer-motion";
 import { FadeInTransitionVariants } from "../constants";
 import { FormDisplayed, PasswordState } from "../types";
 import { useState } from "react";
-import userLogin from "../assets/user-login.json";
-import { useLottie, LottieOptions } from "lottie-react";
-
-const LottieAnimation = () => {
-  const options: LottieOptions = {
-    animationData: userLogin,
-    loop: true,
-    autoplay: true,
-    // initialSegment: [30, 100],
-  };
-  const { View } = useLottie(options);
-  return View;
-};
+import userLogin from "../assets/LottieFiles/user-login.json";
+import LottieContainer from "../components/LottieContainer";
 
 const LogRegisterPage: NextPage = () => {
   const [formDisplayed, setFormDisplayed] = useState<FormDisplayed>("Log In");
@@ -92,7 +81,10 @@ const LogRegisterPage: NextPage = () => {
         )}
       </form>
       <div className="lottieContainer">
-        <LottieAnimation />
+        <LottieContainer
+          lottieSelected={userLogin}
+          lottieData={{ autoplay: true, loop: true }}
+        />
       </div>
     </motion.div>
   );
