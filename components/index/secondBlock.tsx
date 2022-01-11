@@ -5,7 +5,7 @@ import bubbles from "../../assets/LottieFiles/bubbles.json";
 const SecondBlock: React.FC = () => {
   return (
     <section className="SecondBlock" id="SecondBlock">
-      <h1>Cashby NFT's de Propiedad</h1>
+      <h1>{"Cashby NFT's de Propiedad"}</h1>
       <div className="mainContainer">
         <div className="leftContainer">
           <LottieContainer

@@ -28,7 +28,7 @@ const GlobalNav: React.FC = () => {
   return (
     <div className="GlobalNav">
       <div className="logoContainer">
-        <Link href="/">
+        <Link href="/" passHref>
           <Image width={50} height={50} alt="cashby logo" src={LogoCashby} />
         </Link>
         <p>Cashby</p>

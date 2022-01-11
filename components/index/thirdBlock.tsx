@@ -131,7 +131,7 @@ const ThirdBlock: React.FC = () => {
   return (
     <section className="ThirdBlock">
       <div className="leftContainer">
-        <h1>Cashby's NFT Reward System</h1>
+        <h1>{"Cashby's NFT Reward System"}</h1>
         <div className="dataBox">
           <h2
             style={{
