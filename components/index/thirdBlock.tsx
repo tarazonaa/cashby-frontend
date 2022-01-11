@@ -3,11 +3,11 @@ import { Canvas } from "@react-three/fiber";
 import { NFT } from "../../types";
 import anime from "animejs";
 
-import MarkZuckerberg from "../../assets/Models/MarkZuckerberg";
-import JackMa from "../../assets/Models/JackMa";
-import RichardBranson from "../../assets/Models/RichardBranson";
-import IndianCEO from "../../assets/Models/IndianCEO";
-import AllInOne from "../../assets/Models/AllInOne";
+import MarkZuckerberg from "./../../assets/Models/MarkZuckerberg";
+import JackMa from "./../../assets/Models/JackMa";
+import RichardBranson from "./../../assets/Models/RichardBranson";
+import IndianCEO from "./../../assets/Models/IndianCEO";
+import AllInOne from "./../../assets/Models/AllInOne";
 
 const ThirdBlock: React.FC = () => {
   const [selectedNFT, setSelectedNFT] = useState<number>(0);
