@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
       <ul>
         <h3>{sectionTitle}</h3>
         {sectionElements.map((element) => {
-          return <li>{element}</li>;
+          return <li key={element}>{element}</li>;
         })}
       </ul>
     );
