@@ -10,7 +10,7 @@ import LottieContainer from "../LottieContainer";
 
 const InitBlock: React.FC = () => {
   return (
-    <section className="InitBlock">
+    <section className="InitBlock" id="InitBlock">
       <motion.div
         className="leftContainer"
         variants={FadeRightTransitionVariants}
@@ -50,7 +50,7 @@ const InitBlock: React.FC = () => {
           possimus libero? Repellendus?
         </motion.p>
         <motion.div className="buttonsBox" variants={StaggerChildren}>
-          <button>Empieza Ahora</button>
+          <button>Start Now!</button>
           <button>Follow Us</button>
         </motion.div>
       </motion.div>

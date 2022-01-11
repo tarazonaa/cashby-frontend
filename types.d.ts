@@ -21,4 +21,21 @@ interface LottieProps {
   lottieData: AnimationData<LottieOptions>;
 }
 
-export { NavBarState, FormDisplayed, PasswordState, NFT, LottieProps };
+interface ContextData {
+  transversalData: TransversalData;
+  setTransversalData: (things: any) => void;
+}
+
+interface TransversalData {
+  scrollPositionReached: boolean;
+}
+
+export {
+  NavBarState,
+  FormDisplayed,
+  PasswordState,
+  NFT,
+  LottieProps,
+  TransversalData,
+  ContextData,
+};

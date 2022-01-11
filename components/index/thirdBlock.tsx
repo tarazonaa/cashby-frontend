@@ -4,7 +4,7 @@ import { NFT } from "../../types";
 import anime from "animejs";
 
 import JackMa from "./../../assets/Models/JackMa";
-import MarkZuckerberg from "./../../assets/Models/MarkZuckerberg";
+import Zuckerberg from "../../assets/Models/Zuckerberg";
 import RichardBranson from "./../../assets/Models/RichardBranson";
 import IndianCEO from "./../../assets/Models/IndianCEO";
 import AllInOne from "./../../assets/Models/AllInOne";
@@ -48,7 +48,7 @@ const ThirdBlock: React.FC = () => {
     {
       rarity: "Super Rare",
       color: "#ae6fff",
-      model: <MarkZuckerberg position={[-1, 1, -18]} />,
+      model: <Zuckerberg position={[-1, 1, -18]} />,
       perks: [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem1",
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem2",

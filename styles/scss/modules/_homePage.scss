@@ -397,4 +397,60 @@
       }
     }
   }
+
+  .Footer {
+    @include alignCenter;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    margin-top: 100px;
+
+    .listsContainer {
+      width: 100%;
+      height: 40%;
+      display: flex;
+      flex-wrap: wrap;
+
+      ul {
+        flex: 1 1;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        h3 {
+          margin-bottom: 20px;
+          @include GradientColorText(
+            var(--PrimaryColor),
+            var(--TertiaryColor),
+            top
+          );
+        }
+
+        li {
+          cursor: pointer;
+          &:hover {
+            color: var(--SecondaryColor);
+          }
+        }
+      }
+    }
+
+    .Footersfooter {
+      width: 100%;
+      height: 20%;
+      background: linear-gradient(
+        to left,
+        var(--PrimaryColor),
+        var(--TertiaryColor)
+      );
+      @include alignCenter;
+
+      p {
+        color: var(--BackgroundColor);
+        font-weight: bolder;
+      }
+    }
+  }
 }
