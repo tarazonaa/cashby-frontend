@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { NFT } from "../../types";
 import anime from "animejs";
 
-import MarkZuckerberg from "./../../assets/Models/MarkZuckerberg";
+// import MarkZuckerberg from "./../../assets/Models/MarkZuckerberg";
 import JackMa from "./../../assets/Models/JackMa";
 import RichardBranson from "./../../assets/Models/RichardBranson";
 import IndianCEO from "./../../assets/Models/IndianCEO";
@@ -48,7 +48,7 @@ const ThirdBlock: React.FC = () => {
     {
       rarity: "Super Rare",
       color: "#ae6fff",
-      model: <MarkZuckerberg position={[-1, 1, -18]} />,
+      model: <AllInOne position={[-1, 1, -18]} />,
       perks: [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem1",
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem2",
