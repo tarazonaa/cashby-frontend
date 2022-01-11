@@ -86,9 +86,7 @@ type GLTFResult = GLTF & {
 function MarkZuckerberg({ ...props }: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group | any>();
   // @ts-ignore
-  const { nodes, geometry } = useGLTF(
-    "/gltfModels/MarkZuckerberg.gltf"
-  ) as GLTFResult;
+  const { nodes } = useGLTF("/gltfModels/MarkZuckerberg.gltf") as GLTFResult;
 
   useFrame(() => (group.current.rotation.y += 0.01));
 
