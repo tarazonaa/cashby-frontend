@@ -1,4 +1,7 @@
 import React from "react";
+import { useRouter } from "next/router";
+import Image from "next/image";
+
 import interiorDesign from "./../../assets/LottieFiles/interior-design.json";
 import { motion } from "framer-motion";
 import {
@@ -7,8 +10,11 @@ import {
   StaggerChildren,
 } from "../../constants";
 import LottieContainer from "../LottieContainer";
+import CashbyLogo from "../../assets/Images/logoCashby.png";
 
 const InitBlock: React.FC = () => {
+  const router = useRouter();
+
   return (
     <section className="InitBlock" id="InitBlock">
       <motion.div
@@ -41,24 +47,22 @@ const InitBlock: React.FC = () => {
         exit="exit"
       >
         <motion.h1 variants={StaggerChildren}>
-          {"Be part of Cashby's community"}
+          {"Be a part of Cashby’s investment community"}
         </motion.h1>
         <motion.p variants={StaggerChildren}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat
-          doloremque maiores praesentium, eum quia veniam accusamus ullam sint
-          itaque quibusdam laboriosam vel id blanditiis, ipsum dolor, saepe
-          possimus libero? Repellendus?
+          Cashby is the first and only real estate crowdfunding platform in the
+          Web 3.0 . You can own a piece of your favorite metaverse land for only
+          22 USD!!
         </motion.p>
         <motion.div className="buttonsBox" variants={StaggerChildren}>
-          <button>Start Now!</button>
-          <button>Follow Us</button>
+          <button onClick={() => router.push("/logRegisterPage")}>
+            Start Now!
+          </button>
+          <a href="#SecondBlock">Learn More</a>
         </motion.div>
       </motion.div>
       <div className="bgBoxes">
-        <span className="box1" />
-        <span className="box2" />
-        <span className="box3" />
-        <span className="box4" />
+        <Image alt="cashby logo" src={CashbyLogo} />
       </div>
     </section>
   );

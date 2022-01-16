@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import type { NextPage } from "next";
 import { motion } from "framer-motion";
 import { FadeInTransitionVariants } from "../constants";
-import { FormDisplayed, PasswordState } from "../types";
 import anime from "animejs";
 
 // Lottie

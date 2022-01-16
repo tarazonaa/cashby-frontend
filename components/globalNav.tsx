@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import Link from "next/link";
-import { NavBarState } from "../types";
 import LogoCashby from "../assets/Images/logoCashby.png";
 import Image from "next/image";
 import { DataContext } from "../e2e/DataContext";
@@ -13,13 +12,12 @@ const GlobalNav: React.FC = () => {
     if (title === "About Cashby") {
       return (
         <li
-          onClick={() => {
-            setNavBarState("NavHidden");
-            setTransversalData({
-              ...transversalData,
-              scrollPositionReached: false,
-            });
-          }}
+          onClick={() =>
+            window.open(
+              "https://drive.google.com/drive/folders/1xn1TUeh3d40vLEbVymyvVnAENPOYfD6h?usp=sharing",
+              "_blank"
+            )
+          }
         >
           <a href="#SecondBlock">{title}</a>
         </li>
@@ -99,6 +97,8 @@ const GlobalNav: React.FC = () => {
         {CreateLink("/nftsPage", "NFT's")}
 
         {CreateLink("/guidePage", "Guia")} */}
+
+        {CreateLink("/", "Home")}
 
         {CreateLink("/aboutPage", "About Cashby")}
 

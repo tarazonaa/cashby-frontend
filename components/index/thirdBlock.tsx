@@ -1,6 +1,5 @@
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
-import { NFT } from "../../types";
 import anime from "animejs";
 
 import JackMa from "./../../assets/Models/JackMa";
@@ -10,17 +9,13 @@ import IndianCEO from "./../../assets/Models/IndianCEO";
 import AllInOne from "./../../assets/Models/AllInOne";
 
 const ThirdBlock: React.FC = () => {
-  const [selectedNFT, setSelectedNFT] = useState<number>(0);
-  const [NFTClasses, setNFTClasses] = useState<Array<NFT>>([
+  const [NFTClasses] = useState<Array<NFT>>([
     {
       rarity: "Gen 0",
       color: "#fffdf2",
       model: <IndianCEO position={[-1, 1, -18]} />,
       perks: [
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem1",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem2",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem3",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem4",
+        "Nft with first-time user number, name of the owners in the Cashbydome and on the Cashby page, access to the Beta version of the platform and VIP access to the first 10 investment options (NFT with LAND governance full price ).",
       ],
     },
     {
@@ -28,10 +23,7 @@ const ThirdBlock: React.FC = () => {
       color: "#45e3ff",
       model: <JackMa position={[-1, 1, -18]} />,
       perks: [
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem1",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem2",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem3",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem4",
+        "Nft with number, 10% discount on Cashbydome events, neon gray on your profile photo and direct access to investment options (full price).",
       ],
     },
     {
@@ -39,10 +31,7 @@ const ThirdBlock: React.FC = () => {
       color: "#85ff80",
       model: <RichardBranson position={[-1, 1, -18]} />,
       perks: [
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem1",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem2",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem3",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem4",
+        "Nft with number, 15% discount on Cashbydome events, neon green color on your profile picture, access to our special discord channel and direct access before common NFT’s to investment options (with% discount from 22 to 21 USD).",
       ],
     },
     {
@@ -50,10 +39,7 @@ const ThirdBlock: React.FC = () => {
       color: "#ae6fff",
       model: <Zuckerberg position={[-1, 1, -18]} />,
       perks: [
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem1",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem2",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem3",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem4",
+        "Nft with number, 50% discount on Cashbydome events, neon purple in your profile picture, access to our special discord channel and “founders” and direct access before common and rare NFT’s to investment options (with % discount from 22 to 20 USD).",
       ],
     },
     {
@@ -61,13 +47,11 @@ const ThirdBlock: React.FC = () => {
       color: "#ffaa38",
       model: <AllInOne position={[-1, 1, -18]} />,
       perks: [
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem1",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem2",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem3",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos fugit. Fugit rem autem4",
+        "Nft with number, 100% discount on Cashbydome events, neon gold with fire on your profile picture, access to our special discord channel and “founders” and direct access before common and above NFT’s to investment options (with % discount from 22 to 18 USD).",
       ],
     },
   ]);
+  const [selectedNFT, setSelectedNFT] = useState<number>(0);
 
   const changeNFTDisplayed = (direction: "left" | "right") => {
     if (direction === "left") {
@@ -128,20 +112,33 @@ const ThirdBlock: React.FC = () => {
     }, 600);
   };
 
+  useEffect(() => {
+    setSelectedNFT(Math.floor(Math.random() * NFTClasses.length));
+  }, []);
+
   return (
     <section className="ThirdBlock">
       <div className="leftContainer">
         <h1>{"Cashby's NFT Reward System"}</h1>
         <div className="dataBox">
-          <h2
-            style={{
-              textDecoration: `underline 3px ${NFTClasses[selectedNFT].color}`,
-            }}
-          >
-            Rarity: {NFTClasses[selectedNFT].rarity}
-          </h2>
+          <div className="h2box">
+            <h2>Rarity:</h2>
+            <h2
+              style={{
+                color: NFTClasses[selectedNFT].color,
+              }}
+            >
+              {NFTClasses[selectedNFT].rarity}
+            </h2>
+          </div>
           <ul>
-            <h3>Perks</h3>
+            <h3
+              style={{
+                textDecoration: `2px underline ${NFTClasses[selectedNFT].color}`,
+              }}
+            >
+              Perks
+            </h3>
             {NFTClasses[selectedNFT].perks.map((perk) => {
               return <li key={perk}>{perk}</li>;
             })}

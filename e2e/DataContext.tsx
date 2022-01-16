@@ -1,5 +1,4 @@
 import React, { createContext, useState } from "react";
-import { TransversalData, ContextData } from "../types";
 
 export const DataContext = createContext<ContextData>({
   transversalData: {

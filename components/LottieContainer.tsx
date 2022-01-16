@@ -1,6 +1,5 @@
 import React from "react";
 import { LottieOptions, useLottie } from "lottie-react";
-import { LottieProps } from "../types";
 
 const LottieContainer: React.FC<LottieProps> = ({
   lottieSelected,

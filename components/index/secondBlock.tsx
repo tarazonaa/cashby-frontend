@@ -1,52 +1,41 @@
-import React from "react";
-import LottieContainer from "../LottieContainer";
-import bubbles from "../../assets/LottieFiles/bubbles.json";
+import { Canvas } from "@react-three/fiber";
+import React, { Suspense } from "react";
+import RegularCard from "../../assets/Models/RegularCard";
 
 const SecondBlock: React.FC = () => {
   return (
     <section className="SecondBlock" id="SecondBlock">
-      <h1>{"Cashby NFT's de Propiedad"}</h1>
       <div className="mainContainer">
         <div className="leftContainer">
-          <LottieContainer
-            lottieSelected={bubbles}
-            lottieData={{
-              autoplay: true,
-              loop: true,
-              initialSegment: [0, 280],
-            }}
-          />
-          <LottieContainer
-            lottieSelected={bubbles}
-            lottieData={{
-              autoplay: true,
-              loop: true,
-              initialSegment: [-50, 280],
-            }}
-          />
+          <Canvas
+            className="gltfContainer"
+            camera={{ position: [0, 0, 20], fov: 100 }}
+          >
+            <directionalLight
+              castShadow
+              position={[0, -100, 30]}
+              shadow-camera-far={50}
+            />
+            <Suspense fallback={null}>
+              <RegularCard position={[-1, 1, -40]} />
+            </Suspense>
+          </Canvas>
         </div>
         <div className="rightContainer">
+          <h1>{"CashbyBond Land NFT’s"}</h1>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi,
-            laudantium accusantium ducimus ea provident nisi! Quis
-            exercitationem facere ab, rerum necessitatibus perferendis sed
-            deserunt tempora reprehenderit veritatis! Molestias, harum itaque.
+            Each time you buy a Cashbybond of the parcel in the metaverse of
+            your choosing, a certain percentage of its dividends* will be
+            designed to your connected wallet. Cashby will NOT own perpetuity of
+            this generated NFTs, as it will work as an investment instrument.
           </p>
         </div>
       </div>
 
       <div className="bottomContainer">
         <div className="slider">
-          <h2>partner1</h2>
-          <h2>partner2</h2>
-          <h2>partner3</h2>
-          <h2>partner4</h2>
-          <h2>partner5</h2>
-          <h2>partner7</h2>
-          <h2>partner8</h2>
-          <h2>partner9</h2>
-          <h2>partner10</h2>
-          <h2>partner11</h2>
+          <h2>Future</h2>
+          <h2>Partners</h2>
         </div>
       </div>
     </section>

@@ -9,6 +9,7 @@ import { DataContext } from "../e2e/DataContext";
 import InitBlock from "../components/index/initBlock";
 import SecondBlock from "../components/index/secondBlock";
 import ThirdBlock from "../components/index/thirdBlock";
+import TeamBlock from "../components/index/TeamBlock";
 import Footer from "../components/index/footer";
 
 const Home: NextPage = () => {
@@ -51,6 +52,7 @@ const Home: NextPage = () => {
       <InitBlock />
       <SecondBlock />
       <ThirdBlock />
+      <TeamBlock />
       <Footer />
     </motion.div>
   );
