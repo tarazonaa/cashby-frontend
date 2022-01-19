@@ -9,7 +9,7 @@ const SecondBlock: React.FC = () => {
         <div className="leftContainer">
           <Canvas
             className="gltfContainer"
-            camera={{ position: [0, 0, 20], fov: 120 }}
+            camera={{ position: [0, 0, 20], fov: 100 }}
           >
             <directionalLight
               castShadow
@@ -17,7 +17,7 @@ const SecondBlock: React.FC = () => {
               shadow-camera-far={50}
             />
             <Suspense fallback={null}>
-              <RegularCard position={[-1, 1, -40]} />
+              <RegularCard position={[-2, -8, -40.5]} />
             </Suspense>
           </Canvas>
         </div>

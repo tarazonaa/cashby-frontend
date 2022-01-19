@@ -229,10 +229,15 @@
         max-height: 100%;
       }
 
+      .leftContainer {
+        max-width: 40%;
+      }
+
       .rightContainer {
         @include alignCenter;
         flex-direction: column;
         justify-content: space-evenly;
+        border-left: 2px solid var(--SecondaryColor);
 
         h1 {
           @include GradientColorText(
