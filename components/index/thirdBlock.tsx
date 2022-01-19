@@ -120,6 +120,11 @@ const ThirdBlock: React.FC = () => {
     <section className="ThirdBlock">
       <div className="leftContainer">
         <h1>{"Cashby's NFT Reward System"}</h1>
+        <p>
+          {
+            "There are five types of rarity NFTs in Cashby’s Reward System: Gen 0, Common, Rare, Super-rare and Legendary. Click the arrows to see all of them."
+          }
+        </p>
         <div className="dataBox">
           <div className="h2box">
             <h2>Rarity:</h2>
@@ -140,7 +145,7 @@ const ThirdBlock: React.FC = () => {
               Perks
             </h3>
             {NFTClasses[selectedNFT].perks.map((perk) => {
-              return <li key={perk}>{perk}</li>;
+              return <p key={perk}>{perk}</p>;
             })}
           </ul>
         </div>

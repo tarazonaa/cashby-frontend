@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import { motion } from "framer-motion";
 import { FadeInTransitionVariants } from "../constants";
 import anime from "animejs";
+import axios from "axios";
 
 // Lottie
 import userLogin from "../assets/LottieFiles/user-login.json";
@@ -14,17 +15,16 @@ const LogRegisterPage: NextPage = () => {
   const [passwordState, setPasswordState] = useState<PasswordState>("Hidden");
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (data: any) => {
-    console.log(data);
-  };
+  const handleSubmit = async (data: Object) => {};
 
   const ChangeFormDisplayed = (desiredForm: FormDisplayed) => {
     setFormDisplayed(desiredForm);
     formRef.current?.reset();
+    const globalAnimationDuration = 2500;
 
     if (desiredForm === "Log In") {
       const tl1 = anime.timeline({
-        duration: 1500,
+        duration: globalAnimationDuration,
       });
 
       tl1.add({
@@ -37,7 +37,7 @@ const LogRegisterPage: NextPage = () => {
           targets: ".lottieContainer",
           translateX: ["-100%", "0%"],
         },
-        "-=1500"
+        `-=${globalAnimationDuration}`
       );
 
       tl1.add(
@@ -47,7 +47,7 @@ const LogRegisterPage: NextPage = () => {
           translateX: 0,
           translateY: 0,
         },
-        "-=1000"
+        `-=${(globalAnimationDuration / 3) * 2}`
       );
 
       tl1.add(
@@ -55,11 +55,11 @@ const LogRegisterPage: NextPage = () => {
           targets: ".ball1",
           scale: 1,
         },
-        "-=1000"
+        `-=${(globalAnimationDuration / 3) * 2}`
       );
     } else {
       const tl2 = anime.timeline({
-        duration: 1500,
+        duration: globalAnimationDuration,
       });
 
       tl2.add({
@@ -72,7 +72,7 @@ const LogRegisterPage: NextPage = () => {
           targets: ".lottieContainer",
           translateX: ["0%", "-100%"],
         },
-        "-=1500"
+        `-=${globalAnimationDuration}`
       );
 
       tl2.add(
@@ -82,7 +82,7 @@ const LogRegisterPage: NextPage = () => {
           translateX: -150,
           translateY: -150,
         },
-        "-=1000"
+        `-=${(globalAnimationDuration / 3) * 2}`
       );
 
       tl2.add(
@@ -90,10 +90,36 @@ const LogRegisterPage: NextPage = () => {
           targets: ".ball1",
           scale: 1.5,
         },
-        "-=1000"
+        `-=${(globalAnimationDuration / 3) * 2}`
       );
     }
   };
+
+  // useEffect(() => {
+  // const connection = async () => {
+  //   // @ts-ignore
+  //   const resp = await window.solana.connect().then(() => {
+  //     console.log(resp);
+  //   });
+  //   // 26qv4GCcx98RihuK3c4T6ozB3J7L6VwCuFVc7Ta2A3Uo
+  // };
+
+  // const getProvider = async () => {
+  //   if ("solana" in window) {
+  //     // @ts-ignore
+  //     const provider = window.solana;w
+  //     if (provider.isPhantom) {
+  //       connection();
+  //       return provider;
+  //     }
+  //   }
+  //   window.open("https://phantom.app/", "_blank");
+  // };
+
+  // getProvider();
+  // @ts-ignore
+  //   console.log(window.solana.publicKey.toString());
+  // }, []);v
 
   return (
     <motion.div
@@ -109,7 +135,10 @@ const LogRegisterPage: NextPage = () => {
         ref={formRef}
         onSubmit={(e) => {
           e.preventDefault();
-          handleSubmit(e.currentTarget);
+          // Comentarios importantes, no borrar
+          // @ts-ignore
+          // prettier-ignore
+          handleSubmit({ name: e.currentTarget[0].value, password: e.currentTarget[1].value,});
         }}
       >
         <h1>{formDisplayed}</h1>

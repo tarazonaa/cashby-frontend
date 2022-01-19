@@ -9,7 +9,7 @@ const SecondBlock: React.FC = () => {
         <div className="leftContainer">
           <Canvas
             className="gltfContainer"
-            camera={{ position: [0, 0, 20], fov: 100 }}
+            camera={{ position: [0, 0, 20], fov: 120 }}
           >
             <directionalLight
               castShadow

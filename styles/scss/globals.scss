@@ -57,10 +57,18 @@ h3 {
 }
 
 p {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  line-height: 40px;
 }
 
 button,
-input {
+a {
+  text-align: center;
+}
+
+button,
+input,
+a,
+li {
   font-size: 1.1rem;
 }

@@ -15,6 +15,7 @@
     width: 100%;
     height: 100%;
     margin-bottom: 50px;
+    overflow: hidden;
   }
 
   .InitBlock {
@@ -157,10 +158,13 @@
 
     .rightContainer {
       flex-direction: column;
+      justify-content: space-evenly;
+      align-self: center;
+      height: 80%;
 
       > * {
         position: relative;
-        margin: 40px 15%;
+        margin: 0px 15%;
       }
 
       h1 {
@@ -173,7 +177,7 @@
 
       p {
         text-align: left;
-        line-height: 30px;
+        // line-height: 30px;
       }
 
       .buttonsBox {
@@ -228,7 +232,7 @@
       .rightContainer {
         @include alignCenter;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-evenly;
 
         h1 {
           @include GradientColorText(
@@ -241,7 +245,7 @@
 
         p {
           margin: 0px 45px;
-          line-height: 40px;
+          // line-height: 40px;
         }
       }
     }
@@ -286,7 +290,9 @@
       justify-content: space-around;
       flex-direction: column;
       flex: 1 1;
+    }
 
+    .leftContainer {
       h1 {
         margin: 0px 10%;
         @include GradientColorText(
@@ -295,6 +301,10 @@
           right
         );
         margin-top: 5%;
+      }
+
+      p {
+        margin: 0px 10%;
       }
 
       .dataBox {
@@ -329,9 +339,11 @@
             height: 10%;
           }
 
-          li {
+          li,
+          p {
             height: 60%;
-            line-height: 40px;
+            margin: 0;
+            // line-height: 40px;
           }
         }
       }
@@ -449,10 +461,10 @@
         position: relative;
         border: 2px solid var(--SecondaryColor);
         float: left;
-        width: 280px;
-        height: 280px;
+        width: 250px;
+        height: 250px;
         border-radius: 50%;
-        margin: 0px 50px;
+        margin: 10px 25px;
         @include alignCenter;
         overflow: hidden;
 
@@ -481,43 +493,64 @@
           .svgBox {
             width: 50px;
             height: 50px;
-            background: white;
             border-radius: 50%;
             @include alignCenter;
-            transition: transform 500ms, opacity 500ms;
-            opacity: 0.7;
             transform: translateY(-80px);
             cursor: pointer;
+            transition: transform 500ms, background-color 250ms;
 
             svg {
               width: 60%;
               height: 60%;
               fill: white;
-              transition: fill 500ms;
+              transition: fill 300ms;
             }
 
             &:hover {
-              transition: transform 500ms, opacity 500ms;
-              opacity: 1;
+              background-color: white;
+              transition: background-color 500ms;
 
               svg {
-                transition: fill 500ms;
-                fill: black;
+                transition: fill 300ms;
               }
             }
           }
 
-          .whatsappBox {
-            background-color: rgb(32, 225, 32);
-          }
-          .facebookBox {
-            background-color: rgb(39, 57, 247);
+          .linkedinBox {
+            background-color: rgb(32, 116, 225);
+            -webkit-transition-delay: 300ms;
+            -moz-transition-delay: 300ms;
+            -o-transition-delay: 300ms;
+            transition-delay: 300ms;
+            &:hover {
+              svg {
+                fill: rgb(32, 116, 225);
+              }
+            }
           }
           .instagramBox {
-            background-color: rgb(225, 32, 106);
+            background-color: rgb(223, 62, 124);
+            -webkit-transition-delay: 200ms;
+            -moz-transition-delay: 200ms;
+            -o-transition-delay: 200ms;
+            transition-delay: 200ms;
+            &:hover {
+              svg {
+                fill: rgb(223, 62, 124);
+              }
+            }
           }
           .twitterBox {
-            background-color: rgb(51, 220, 217);
+            background-color: rgb(83, 232, 229);
+            -webkit-transition-delay: 100ms;
+            -moz-transition-delay: 100ms;
+            -o-transition-delay: 100ms;
+            transition-delay: 100ms;
+            &:hover {
+              svg {
+                fill: rgb(83, 232, 229);
+              }
+            }
           }
         }
 
@@ -527,18 +560,30 @@
             transform: translateX(0);
           }
           .membersSocials {
-            .facebookBox {
-              transform: translateY(-5px);
+            .svgBox {
+              transition: transform 500ms, background-color 250ms;
             }
 
+            .linkedinBox {
+              transform: translate(17px, 30px);
+              -webkit-transition-delay: 100ms;
+              -moz-transition-delay: 100ms;
+              -o-transition-delay: 100ms;
+              transition-delay: 100ms;
+            }
             .instagramBox {
               transform: translateY(-5px);
-            }
-            .whatsappBox {
-              transform: translate(17px, 30px);
+              -webkit-transition-delay: 200ms;
+              -moz-transition-delay: 200ms;
+              -o-transition-delay: 200ms;
+              transition-delay: 200ms;
             }
             .twitterBox {
               transform: translate(-17px, 30px);
+              -webkit-transition-delay: 300ms;
+              -moz-transition-delay: 300ms;
+              -o-transition-delay: 300ms;
+              transition-delay: 300ms;
             }
           }
         }

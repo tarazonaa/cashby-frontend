@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import Link from "next/link";
 import LogoCashby from "../assets/Images/logoCashby.png";
 import Image from "next/image";

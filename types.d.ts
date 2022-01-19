@@ -33,9 +33,8 @@ declare global {
 
   interface SocialsUrls {
     instagram: string;
-    facebook: string;
     twitter: string;
-    whatsapp: number;
+    linkedin: string;
   }
 
   interface PersonalInfo {
