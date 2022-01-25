@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Link from "next/link";
 import LogoCashby from "../assets/Images/logoCashby.png";
 import Image from "next/image";
@@ -7,6 +7,32 @@ import { DataContext } from "../e2e/DataContext";
 const GlobalNav: React.FC = () => {
   const { transversalData, setTransversalData } = useContext(DataContext);
   const [navBarState, setNavBarState] = useState<NavBarState>("NavHidden");
+
+  const ConnectWallet = async () => {
+    try {
+      // @ts-ignore
+      await window.solana
+        .connect()
+        .then((res: any) => {
+          // @ts-ignore
+          console.log(window.solana.publicKey.toString());
+          // @ts-ignore
+          console.log(window.solana.isConnected);
+        })
+        .catch((err: any) => console.error(err));
+    } catch (err) {
+      window.open("https://phantom.app/", "_newtab");
+    }
+  };
+
+  const DisconectWallet = () => {
+    try {
+      // @ts-ignore
+      window.solana.disconnect();
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const CreateLink = (href: string, title: string) => {
     if (title === "About Cashby") {
@@ -19,7 +45,7 @@ const GlobalNav: React.FC = () => {
             )
           }
         >
-          <a href="#SecondBlock">{title}</a>
+          <a>{title}</a>
         </li>
       );
     } else if (title === "Log In or Register") {

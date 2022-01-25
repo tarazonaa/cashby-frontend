@@ -16,11 +16,11 @@ const Home: NextPage = () => {
   const { transversalData, setTransversalData } = useContext(DataContext);
 
   return (
-    <motion.div
+    <div
       className="IndexPage"
       id="LinkPage"
-      variants={FadeInTransitionVariants}
-      exit="exit"
+      // variants={FadeInTransitionVariants}
+      // exit="exit"
       onScroll={(e) => {
         if (
           e.currentTarget.scrollTop === 0 &&
@@ -54,7 +54,7 @@ const Home: NextPage = () => {
       <ThirdBlock />
       <TeamBlock />
       <Footer />
-    </motion.div>
+    </div>
   );
 };
 

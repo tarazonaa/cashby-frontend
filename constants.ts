@@ -39,24 +39,23 @@ const FadeInTransitionVariants = {
   },
 };
 
-const FadeUpTransitionVariants = {
+const FadeDownTransitionVariants = {
   initial: {
-    y: 100,
+    y: -300,
     opacity: 0,
     transition: {
       duration: 0.7,
     },
   },
   animate: {
-    opacity: 1,
     y: 0,
+    opacity: 1,
     transition: {
-      delay: 1,
-      duration: 1,
-      easing: "circInOut",
+      duration: 0.7,
     },
   },
   exit: {
+    y: -300,
     opacity: 0,
     transition: {
       duration: 0.7,
@@ -64,20 +63,23 @@ const FadeUpTransitionVariants = {
   },
 };
 
-const FadeDownTransitionVariants = {
+const FadeUpTransitionVariants = {
   initial: {
+    y: 300,
     opacity: 0,
     transition: {
       duration: 0.7,
     },
   },
   animate: {
+    y: 0,
     opacity: 1,
     transition: {
       duration: 0.7,
     },
   },
   exit: {
+    y: 300,
     opacity: 0,
     transition: {
       duration: 0.7,
@@ -87,7 +89,7 @@ const FadeDownTransitionVariants = {
 
 const FadeLeftTransitionVariants = {
   initial: {
-    x: 70,
+    x: 300,
     opacity: 0,
     transition: {
       duration: 0.7,
@@ -97,11 +99,11 @@ const FadeLeftTransitionVariants = {
     x: 0,
     opacity: 1,
     transition: {
-      delay: 1,
+      duration: 0.7,
     },
   },
   exit: {
-    x: -70,
+    x: 300,
     opacity: 0,
     transition: {
       duration: 0.7,
@@ -111,18 +113,24 @@ const FadeLeftTransitionVariants = {
 
 const FadeRightTransitionVariants = {
   initial: {
-    x: -250,
+    x: -300,
     opacity: 0,
+    transition: {
+      duration: 0.7,
+    },
   },
   animate: {
     x: 0,
     opacity: 1,
+    transition: {
+      duration: 0.7,
+    },
   },
   exit: {
-    x: -250,
+    x: -300,
     opacity: 0,
     transition: {
-      duration: 0.3,
+      duration: 0.7,
     },
   },
 };

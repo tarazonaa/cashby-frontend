@@ -71,11 +71,23 @@
           @include GenericButtonStyle(var(--SecondaryColor));
         }
 
-        .passCheck {
-          width: 20px;
-          height: 20px;
-          align-items: flex-start;
-          background: lightcoral;
+        .seePassword {
+          position: absolute;
+          right: 2%;
+          bottom: 1px;
+          width: 30px;
+          height: 30px;
+          @include alignCenter;
+          border-radius: 5px;
+          cursor: pointer;
+          background-color: transparent;
+
+          svg {
+            fill: var(--SecondaryColor);
+            position: absolute;
+            width: 90%;
+            height: 90%;
+          }
         }
       }
 

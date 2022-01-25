@@ -41,4 +41,10 @@ declare global {
     name: string;
     about: string;
   }
+
+  interface LogRegisterProps {
+    name: string;
+    email: string;
+    password: string;
+  }
 }

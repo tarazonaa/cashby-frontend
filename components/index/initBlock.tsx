@@ -5,7 +5,7 @@ import Image from "next/image";
 import interiorDesign from "./../../assets/LottieFiles/interior-design.json";
 import { motion } from "framer-motion";
 import {
-  FadeRightTransitionVariants,
+  FadeDownTransitionVariants,
   StaggerContainer,
   StaggerChildren,
 } from "../../constants";
@@ -19,7 +19,7 @@ const InitBlock: React.FC = () => {
     <section className="InitBlock" id="InitBlock">
       <motion.div
         className="leftContainer"
-        variants={FadeRightTransitionVariants}
+        variants={FadeDownTransitionVariants}
         initial="initial"
         animate="animate"
         exit="exit"
