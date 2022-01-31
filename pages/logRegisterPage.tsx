@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import {
   FadeLeftTransitionVariants,
   FadeRightTransitionVariants,
+  FadeInTransitionVariants,
 } from "../constants";
 import anime from "animejs";
 import { toast } from "react-toastify";
@@ -19,6 +20,8 @@ import Head from "next/head";
 const LogRegisterPage: NextPage = () => {
   const [formDisplayed, setFormDisplayed] = useState<FormDisplayed>("Log In");
   const [passwordState, setPasswordState] = useState<PasswordState>("Hidden");
+  const [passwordState2, setPasswordState2] = useState<PasswordState>("Hidden");
+
   const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -169,9 +172,10 @@ const LogRegisterPage: NextPage = () => {
         className="logRegisterForm"
         ref={formRef}
         variants={
-          formDisplayed === "Log In"
-            ? FadeRightTransitionVariants
-            : FadeLeftTransitionVariants
+          FadeInTransitionVariants
+          // formDisplayed === "Log In"
+          //   ? FadeRightTransitionVariants
+          //   : FadeLeftTransitionVariants
         }
         initial="initial"
         animate="animate"
@@ -203,11 +207,11 @@ const LogRegisterPage: NextPage = () => {
               />
               <p
                 className="seePassword"
-                onClick={() =>
+                onClick={() => {
                   setPasswordState(
                     passwordState === "Hidden" ? "Visible" : "Hidden"
-                  )
-                }
+                  );
+                }}
               >
                 <svg
                   style={{
@@ -267,19 +271,19 @@ const LogRegisterPage: NextPage = () => {
               <label htmlFor="password">Password</label>
               <input
                 required
-                type={passwordState === "Hidden" ? "password" : "text"}
+                type={passwordState2 === "Hidden" ? "password" : "text"}
               />
               <p
                 className="seePassword"
-                onClick={() =>
-                  setPasswordState(
-                    passwordState === "Hidden" ? "Visible" : "Hidden"
-                  )
-                }
+                onClick={() => {
+                  setPasswordState2(
+                    passwordState2 === "Hidden" ? "Visible" : "Hidden"
+                  );
+                }}
               >
                 <svg
                   style={{
-                    opacity: `${passwordState === "Hidden" ? 0 : 1}`,
+                    opacity: `${passwordState2 === "Hidden" ? 0 : 1}`,
                     transition: "opacity 500ms",
                   }}
                   className="openedEye"
@@ -292,7 +296,7 @@ const LogRegisterPage: NextPage = () => {
                 </svg>
                 <svg
                   style={{
-                    opacity: `${passwordState === "Hidden" ? 1 : 0}`,
+                    opacity: `${passwordState2 === "Hidden" ? 1 : 0}`,
                     transition: "opacity 500ms",
                   }}
                   className="closedEye"
@@ -321,9 +325,10 @@ const LogRegisterPage: NextPage = () => {
       <motion.div
         className={"lottieContainer"}
         variants={
-          formDisplayed === "Register"
-            ? FadeRightTransitionVariants
-            : FadeLeftTransitionVariants
+          FadeInTransitionVariants
+          // formDisplayed === "Register"
+          //   ? FadeRightTransitionVariants
+          //   : FadeLeftTransitionVariants
         }
         initial="initial"
         animate="animate"

@@ -30,7 +30,15 @@ const Footer: React.FC = () => {
   return (
     <div className="Footer">
       <div className="listsContainer">
-        {addSection("Cashby", ["Land", "NFT's", "Docs"])}
+        {addSection(
+          "Cashby",
+          ["Land", "NFT's", "Docs"],
+          [
+            "",
+            "",
+            "https://drive.google.com/drive/folders/1xn1TUeh3d40vLEbVymyvVnAENPOYfD6h?usp=sharing",
+          ]
+        )}
         {addSection(
           "Socials",
           ["Twitter", "Discord", "Instagram", "Youtube"],
