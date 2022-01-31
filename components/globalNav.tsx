@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import Link from "next/link";
 import LogoCashby from "../assets/Images/logoCashby.png";
 import Image from "next/image";
@@ -35,7 +35,7 @@ const GlobalNav: React.FC = () => {
   };
 
   const CreateLink = (href: string, title: string) => {
-    if (title === "About Cashby") {
+    if (title === "Docs") {
       return (
         <li
           onClick={() =>
@@ -126,7 +126,7 @@ const GlobalNav: React.FC = () => {
 
         {CreateLink("/", "Home")}
 
-        {CreateLink("/aboutPage", "About Cashby")}
+        {CreateLink("/aboutPage", "Docs")}
 
         {CreateLink("/logRegisterPage", "Log In or Register")}
       </ul>

@@ -29,6 +29,7 @@
   background-color: var(--BGColor);
   border: 1px solid $color-value;
   color: $color-value;
+  padding: clamp(5px, 4vw, 20px) clamp(10px, 2vw, 40px);
 
   a,
   p {

@@ -1,0 +1,27 @@
+@media (max-width: 300px) {
+  .IndexPage {
+    .InitBlock {
+      .leftContainer {
+        .hexagon1,
+        .hexagon2,
+        .hexagon3 {
+          transform: scale(0.25);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .IndexPage {
+    .InitBlock {
+      .leftContainer {
+        .hexagon1,
+        .hexagon2,
+        .hexagon3 {
+          transform: scale(0.48);
+        }
+      }
+    }
+  }
+}

@@ -3,12 +3,25 @@ import React from "react";
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
-  const addSection = (sectionTitle: string, sectionElements: string[]) => {
+  const addSection = (
+    sectionTitle: string,
+    sectionElements: string[],
+    urlLinks?: string[] | undefined
+  ) => {
     return (
       <ul>
         <h3>{sectionTitle}</h3>
-        {sectionElements.map((element) => {
-          return <li key={element}>{element}</li>;
+        {sectionElements.map((element, index) => {
+          return (
+            <li
+              onClick={() =>
+                window.open(urlLinks ? urlLinks[index] : "", "_blank")
+              }
+              key={element}
+            >
+              {element}
+            </li>
+          );
         })}
       </ul>
     );
@@ -18,7 +31,16 @@ const Footer: React.FC = () => {
     <div className="Footer">
       <div className="listsContainer">
         {addSection("Cashby", ["Land", "NFT's", "Docs"])}
-        {addSection("Socials", ["Discord", "Twitter", "Instagram", "Youtube"])}
+        {addSection(
+          "Socials",
+          ["Twitter", "Discord", "Instagram", "Youtube"],
+          [
+            "https://twitter.com/cashbydefi",
+            "http://discord.gg/ZUKSSNjPpM",
+            "https://www.instagram.com/cashby.io/",
+            "https://www.youtube.com/channel/UCRIdk940C7ehSLbUxfpuJhg",
+          ]
+        )}
         {addSection("External", [
           "Partner1",
           "Partner2",

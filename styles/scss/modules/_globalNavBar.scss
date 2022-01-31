@@ -29,15 +29,26 @@
     width: 50px;
     height: 50px;
     cursor: pointer;
-    // background-color: lightcoral;
     right: 40px;
     visibility: hidden;
+    border-radius: 50%;
     @include alignCenter;
     flex-direction: column;
-    justify-content: space-evenly;
 
     div {
+      // border: 2px solid blue;
+      position: relative;
+      margin: 3px 0px;
       transition: transform 500ms, opacity 500ms;
+      position: relative;
+      width: 60%;
+      height: 4px;
+      // background-color: var(--BGColor);
+      background: linear-gradient(
+        to right,
+        var(--PrimaryColor),
+        var(--SecondaryColor)
+      );
     }
   }
 }
@@ -154,24 +165,20 @@
   .GlobalNav {
     .burguer {
       visibility: visible;
-
-      div {
-        position: relative;
-        width: 80%;
-        height: 4px;
-        background-color: black;
-      }
     }
 
     .xBurguer {
+      border-radius: 50%;
+      border: 1px solid var(--SecondaryColor);
+
       .line1 {
-        transform: translateY(13.5px) rotate(315deg);
+        transform: translateY(10.2px) rotate(315deg);
       }
       .line2 {
         opacity: 0;
       }
       .line3 {
-        transform: translateY(-13.5px) rotate(-315deg);
+        transform: translateY(-10.2px) rotate(-315deg);
       }
     }
 
@@ -182,7 +189,8 @@
       margin: 0;
       width: 300px;
       height: calc(100vh - 70px);
-      background-color: black;
+      background-color: hsla(240, 84%, 5%, 0.6);
+      backdrop-filter: blur(10px);
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
@@ -193,10 +201,12 @@
         width: 100%;
         @include alignCenter;
         justify-content: flex-start;
+        border: 2px solid transparent;
 
         a {
           color: white;
           padding: 0px 10%;
+          font-size: 1rem;
         }
       }
     }

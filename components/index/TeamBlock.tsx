@@ -5,8 +5,10 @@ import Image from "next/image";
 // Team Member Photos
 import Isma from "../../assets/Images/TeamMembers/Isma.jpeg";
 import Adrian from "../../assets/Images/TeamMembers/Adrian.jpeg";
-import Rafa from "../../assets/Images/TeamMembers/Rafa.jpeg";
 import Jesus from "../../assets/Images/TeamMembers/Jesus.jpg";
+import Rafa from "../../assets/Images/TeamMembers/Rafa.jpeg";
+import Marco from "../../assets/Images/TeamMembers/Marco.png";
+import Joel from "../../assets/Images/TeamMembers/Joel.png";
 import img from "../../assets/Images/logoCashby.png";
 
 const TeamBlock: React.FC = () => {
@@ -95,12 +97,12 @@ const TeamBlock: React.FC = () => {
           twitter: "https://twitter.com/rafikis_room",
           linkedin: "https://www.linkedin.com/in/rafael-esquivel/",
         })}
-        {CreateTeamMember("Joel Martínez", "CMO", img, {
+        {CreateTeamMember("Joel Martínez", "CMO", Joel, {
           instagram: "https://www.instagram.com/madebycaft/?hl=es",
           twitter: "https://twitter.com/JoelErickMartn1",
           linkedin: "https://www.linkedin.com/in/joel-martinez-espinosa/",
         })}
-        {CreateTeamMember("Marco Vázquez", "---", img, {
+        {CreateTeamMember("Marco Vázquez", "---", Marco, {
           instagram: "",
           twitter: "",
           linkedin: "",

@@ -20,7 +20,7 @@
 
   .InitBlock {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
 
     .bgBoxes {
       z-index: -1;
@@ -44,7 +44,11 @@
 
     .leftContainer,
     .rightContainer {
-      flex: 1;
+      overflow: hidden;
+      position: relative;
+      flex: 1 1;
+      flex-basis: 350px;
+      min-height: clamp(50%, 70vw, 100%);
       @include alignCenter;
     }
 
@@ -160,7 +164,6 @@
       flex-direction: column;
       justify-content: space-evenly;
       align-self: center;
-      height: 80%;
 
       > * {
         position: relative;
@@ -190,7 +193,6 @@
         button,
         a {
           color: var(--TextGenericColor);
-          padding: 20px 40px;
           margin: 0px 15px;
           font-weight: bolder;
 
