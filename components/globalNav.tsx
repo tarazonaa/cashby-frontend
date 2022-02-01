@@ -8,32 +8,6 @@ const GlobalNav: React.FC = () => {
   const { transversalData, setTransversalData } = useContext(DataContext);
   const [navBarState, setNavBarState] = useState<NavBarState>("NavHidden");
 
-  const ConnectWallet = async () => {
-    try {
-      // @ts-ignore
-      await window.solana
-        .connect()
-        .then((res: any) => {
-          // @ts-ignore
-          console.log(window.solana.publicKey.toString());
-          // @ts-ignore
-          console.log(window.solana.isConnected);
-        })
-        .catch((err: any) => console.error(err));
-    } catch (err) {
-      window.open("https://phantom.app/", "_newtab");
-    }
-  };
-
-  const DisconectWallet = () => {
-    try {
-      // @ts-ignore
-      window.solana.disconnect();
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   const CreateLink = (href: string, title: string) => {
     if (title === "Docs") {
       return (

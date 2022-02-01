@@ -1,5 +1,5 @@
 import { LottieOptions, AnimationData } from "lottie-react";
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 
 declare global {
   type NavBarState = "NavDisplayed" | "NavHidden";
@@ -9,6 +9,17 @@ declare global {
   type PasswordState = "Hidden" | "Visible";
 
   type Rarities = "Gen 0" | "Common" | "Rare" | "Super Rare" | "Legendary";
+
+  type WalletState = "connected" | "disconnected" | "awaiting";
+
+  type DashboardFunctions =
+    | "startInvesting"
+    | "connectWallet"
+    | "signUpForUpdates";
+
+  type DashboardFunctionComponentList = {
+    [key in DashboardFunctions]: ReactElement;
+  };
 
   interface NFT {
     rarity: Rarities;
@@ -43,8 +54,8 @@ declare global {
   }
 
   interface LogRegisterProps {
-    name: string;
-    email: string;
-    password: string;
+    name?: string;
+    email?: string;
+    password?: string;
   }
 }
