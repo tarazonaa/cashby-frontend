@@ -36,7 +36,7 @@ const scoreboardPage: NextPage = () => {
       animate="animate"
       exit="exit"
     >
-      <h1 className="titleThingy">Cashby's Scoreboard</h1>
+      <h1 className="titleThingy">{"Cashby's Scoreboard"}</h1>
       <div className="scoreboardContainer">
         {createUserInScoreboard("El Ismashelas1", 93444, 1)}
         {createUserInScoreboard("AdrianPadrote9", 83874, 2)}

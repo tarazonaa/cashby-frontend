@@ -30,7 +30,7 @@ const landsPage: NextPage = () => {
         <div className="BottomBox">
           <div className="percentages">
             {percentages.map((percentage) => {
-              return <h1>{percentage}%</h1>;
+              return <h1 key={percentage}>{percentage}%</h1>;
             })}
           </div>
           <h2>43 days remaining to invest</h2>

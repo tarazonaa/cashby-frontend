@@ -30,7 +30,7 @@ const playground: NextPage = () => {
         <div className="BottomBox">
           <div className="percentages">
             {percentages.map((percentage) => {
-              return <h1>{percentage}%</h1>;
+              return <h1 key={percentage}>{percentage}%</h1>;
             })}
           </div>
           <h2>43 days remaining to invest</h2>
@@ -94,7 +94,7 @@ const playground: NextPage = () => {
         )}
       </section>
       <section className="section2">
-        <h1 className="titleThingy">Cashby's Scoreboard</h1>
+        <h1 className="titleThingy">{"Cashby's Scoreboard"}</h1>
         <div className="scoreboardContainer">
           {createUserInScoreboard("El Ismashelas1", 93444, 1)}
           {createUserInScoreboard("AdrianPadrote9", 83874, 2)}
