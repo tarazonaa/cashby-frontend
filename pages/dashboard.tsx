@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import {
   FadeLeftTransitionVariants,
   FadeRightTransitionVariants,
@@ -10,11 +12,14 @@ import investingImg from "../assets/Images/investing.png";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import anime from "animejs";
+import { DataContext } from "../e2e/DataContext";
 
 const Dashboard: NextPage = () => {
   const [selectedFunctionDisplayed, setSelectedFunctionDisplayed] =
     useState<DashboardFunctions>("connectWallet");
   const [walletState, setWalletState] = useState<WalletState>("awaiting");
+  const { transversalData, setTransversalData } = useContext(DataContext);
+  const router = useRouter();
 
   const FunctionsComponentList: DashboardFunctionComponentList = {
     connectWallet: (
@@ -120,11 +125,28 @@ const Dashboard: NextPage = () => {
               isLoading: false,
             });
             setWalletState("connected");
+
+            setTimeout(() => {
+              toast.success("You can now access cashby, redirecting...");
+              setTransversalData({ ...transversalData, loggedIn: true });
+            }, 3000);
+            setTimeout(() => {
+              router.push("/");
+            }, 5500);
           }
-          // @ts-ignore
-          // console.log(window.solana.publicKey.toString());
         })
-        .catch((err: any) => console.error(err));
+        .catch((err: any) => {
+          toast.update(id2, {
+            render: `error connecting wallet`,
+            position: "top-right",
+            type: "error",
+            closeOnClick: true,
+            hideProgressBar: false,
+            autoClose: 2500,
+            theme: "light",
+            isLoading: false,
+          });
+        });
     } catch (err) {
       window.open("https://phantom.app/", "_newtab");
     }

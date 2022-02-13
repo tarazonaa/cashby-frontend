@@ -35,11 +35,12 @@ declare global {
 
   interface ContextData {
     transversalData: TransversalData;
-    setTransversalData: (things: any) => void;
+    setTransversalData: (things: TransversalData) => void;
   }
 
   interface TransversalData {
     scrollPositionReached: boolean;
+    loggedIn: boolean;
   }
 
   interface SocialsUrls {
@@ -54,8 +55,9 @@ declare global {
   }
 
   interface LogRegisterProps {
-    name?: string;
-    email?: string;
-    password?: string;
+    username: string;
+    email: string;
+    bio: string;
+    password_hash: string;
   }
 }

@@ -1,0 +1,132 @@
+.landsPage {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  .RealEstateCard {
+    position: relative;
+    cursor: pointer;
+    width: 300px;
+    height: 400px;
+    border: 2px solid white;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.1);
+    transition: transform 500ms;
+    background: linear-gradient(
+      45deg,
+      var(--PrimaryColor),
+      var(--SecondaryColor)
+    );
+    overflow: hidden;
+
+    .TopBox,
+    .BottomBox,
+    .imgBox {
+      position: relative;
+      width: 100%;
+      height: 33%;
+
+      h1,
+      h2,
+      h3,
+      p {
+        color: var(--BGColor);
+        margin: 0px 10px;
+      }
+
+      h1 {
+        margin: 0;
+        width: 100%;
+        font-size: 1.4rem;
+        background: white;
+        height: 40px;
+        @include alignCenter;
+      }
+      h2 {
+        font-size: 0.6rem;
+      }
+      h3 {
+        font-size: 0.5rem;
+      }
+      p {
+        font-size: 0.7rem;
+        line-height: 15px;
+      }
+    }
+
+    .TopBox {
+      @include alignCenter;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+
+    .imgBox {
+      @include alignCenter;
+      flex-direction: column;
+
+      h3 {
+        top: 0;
+        width: 100%;
+        @include alignCenter;
+        background-color: var(--BGColor);
+        color: white;
+        font-size: 0.4rem;
+        padding: 5px 0px;
+      }
+
+      img {
+        // background-color: lightcoral;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .BottomBox {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+
+      .percentages {
+        width: 100%;
+        @include alignCenter;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      .buttons {
+        @include alignCenter;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+
+        button {
+          font-size: 0.65rem;
+          color: black;
+          width: 40%;
+          height: 30px;
+          border: 1px solid white;
+          background: white;
+          border-radius: 10px;
+        }
+
+        button:nth-child(1) {
+          border: 2px solid var(--TertiaryColor);
+        }
+        button:nth-child(2) {
+          border: 2px solid var(--SecondaryColor);
+        }
+      }
+    }
+
+    &:hover {
+      transform: translateY(-20px);
+      transition: transform 500ms;
+    }
+  }
+}

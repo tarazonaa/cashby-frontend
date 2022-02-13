@@ -92,15 +92,14 @@ const GlobalNav: React.FC = () => {
         )}
       </div>
       <ul className={navBarState}>
-        {/* {CreateLink("/landsPage", "Lands")}
-
-        {CreateLink("/nftsPage", "NFT's")}
-
-        {CreateLink("/guidePage", "Guia")} */}
-
         {CreateLink("/", "Home")}
 
         {CreateLink("/aboutPage", "Docs")}
+
+        {transversalData.loggedIn && CreateLink("/landsPage", "Lands")}
+
+        {transversalData.loggedIn &&
+          CreateLink("/scoreboardPage", "Scoreboard")}
 
         {CreateLink("/logRegisterPage", "Log In or Register")}
       </ul>

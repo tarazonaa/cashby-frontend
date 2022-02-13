@@ -1,14 +1,11 @@
 import { useRef, useState } from "react";
 import type { NextPage } from "next";
 import { motion } from "framer-motion";
-import {
-  FadeLeftTransitionVariants,
-  FadeRightTransitionVariants,
-  FadeInTransitionVariants,
-} from "../constants";
+import bcrypt from "bcryptjs";
+import { FadeInTransitionVariants } from "../constants";
 import anime from "animejs";
 import { toast } from "react-toastify";
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { useRouter } from "next/router";
 
 // Lottie
@@ -123,7 +120,7 @@ const LogRegisterPage: NextPage = () => {
     if (formDisplayed === "Log In") {
       setTimeout(() => {
         toast.update(id, {
-          render: `Welcome ${data.name}, redirecting...`,
+          render: `Welcome ${data.username}, redirecting...`,
           position: "top-right",
           type: "success",
           closeOnClick: true,
@@ -136,25 +133,133 @@ const LogRegisterPage: NextPage = () => {
       setTimeout(() => {
         router.push("/dashboard");
       }, 5500);
+
+      // await axios
+      //   .get(
+      //     `${process.env.NEXT_PUBLIC_NOT_BACKEND_URL}/resource/get_user/${data.username}`,
+      //     {
+      //       headers: {
+      //         AUTH_TOKEN: `${process.env.NEXT_PUBLIC_NOT_BACKEND_AUTH_TOKEN}`,
+      //       },
+      //     }
+      //   )
+      //   .then((response) => {
+      //     console.log(response);
+      //     if (response.data.status === 200) {
+      //       const passChecking = bcrypt.compareSync(
+      //         data.password_hash,
+      //         response.data.password_hash
+      //       );
+      //       console.log(passChecking);
+      //       if (passChecking) {
+      //         toast.update(id, {
+      //           render: `Welcome ${data.username}, redirecting...`,
+      //           position: "top-right",
+      //           type: "success",
+      //           closeOnClick: true,
+      //           hideProgressBar: false,
+      //           autoClose: 2500,
+      //           theme: "light",
+      //           isLoading: false,
+      //         });
+      //         setTimeout(() => {
+      //           router.push("/dashboard");
+      //         }, 5500);
+      //       } else {
+      //         toast.update(id, {
+      //           position: "top-left",
+      //           render: "Username or password wrong",
+      //           type: "error",
+      //           closeOnClick: true,
+      //           hideProgressBar: false,
+      //           autoClose: 5000,
+      //           theme: "light",
+      //           isLoading: false,
+      //         });
+      //       }
+      //     } else {
+      //       toast.update(id, {
+      //         position: "top-left",
+      //         render: "Error logging in, try again",
+      //         type: "error",
+      //         closeOnClick: true,
+      //         hideProgressBar: false,
+      //         autoClose: 5000,
+      //         theme: "light",
+      //         isLoading: false,
+      //       });
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     console.error(error);
+      //     toast.update(id, {
+      //       position: "top-left",
+      //       render: "Error logging in, try again",
+      //       type: "error",
+      //       closeOnClick: true,
+      //       hideProgressBar: false,
+      //       autoClose: 5000,
+      //       theme: "light",
+      //       isLoading: false,
+      //     });
+      //   });
     } else if (formDisplayed === "Register") {
-      setTimeout(() => {
-        toast.update(id, {
-          position: "top-left",
-          render: "Registration Successfull",
-          type: "success",
-          closeOnClick: true,
-          hideProgressBar: false,
-          autoClose: 5000,
-          theme: "light",
-          isLoading: false,
+      await axios
+        .post(
+          `${process.env.NEXT_PUBLIC_NOT_BACKEND_URL}/resource/add_user/`,
+          data,
+          {
+            headers: {
+              AUTH_TOKEN: `${process.env.NEXT_PUBLIC_NOT_BACKEND_AUTH_TOKEN}`,
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response);
+          if (response.data.status === 200) {
+            toast.update(id, {
+              position: "top-left",
+              render: "Registration Successfull",
+              type: "success",
+              closeOnClick: true,
+              hideProgressBar: false,
+              autoClose: 5000,
+              theme: "light",
+              isLoading: false,
+            });
+            setTimeout(() => {
+              toast.success("You can now Log In!", { position: "top-right" });
+            }, 3500);
+            setTimeout(() => {
+              ChangeFormDisplayed("Log In");
+            }, 4500);
+          } else if (response.data.status === 500) {
+            toast.update(id, {
+              position: "top-left",
+              render: "User already registrated",
+              type: "error",
+              closeOnClick: true,
+              hideProgressBar: false,
+              autoClose: 5000,
+              theme: "light",
+              isLoading: false,
+            });
+          } else {
+            toast.update(id, {
+              position: "top-left",
+              render: "Error registering, try again",
+              type: "error",
+              closeOnClick: true,
+              hideProgressBar: false,
+              autoClose: 5000,
+              theme: "light",
+              isLoading: false,
+            });
+          }
+        })
+        .catch((error) => {
+          console.error(error);
         });
-        setTimeout(() => {
-          toast.success("You can now Log In!", { position: "top-right" });
-        }, 3500);
-      }, 3000);
-      setTimeout(() => {
-        ChangeFormDisplayed("Log In");
-      }, 4500);
     } else {
       toast.error("An error ocurred, please try again");
     }
@@ -182,10 +287,11 @@ const LogRegisterPage: NextPage = () => {
         exit="exit"
         onSubmit={(e) => {
           e.preventDefault();
+          const salt = bcrypt.genSaltSync(10);
           // Comentarios importantes, no borrar
           // @ts-ignore
           // prettier-ignore
-          handleSubmit({ name: e.currentTarget[0].value, email: e.currentTarget[1].value, password: e.currentTarget[2].value,});
+          handleSubmit({ username: e.currentTarget[0].value, email: e.currentTarget[1].value, bio: "" ,  password_hash: bcrypt.hashSync(e.currentTarget[2].value, salt)});
         }}
       >
         <h1>{formDisplayed}</h1>

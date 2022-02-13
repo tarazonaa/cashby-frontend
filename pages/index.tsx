@@ -19,8 +19,6 @@ const Home: NextPage = () => {
     <div
       className="IndexPage"
       id="LinkPage"
-      // variants={FadeInTransitionVariants}
-      // exit="exit"
       onScroll={(e) => {
         if (
           e.currentTarget.scrollTop === 0 &&
