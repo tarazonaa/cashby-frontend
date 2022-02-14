@@ -8,8 +8,6 @@ import { toast } from "react-toastify";
 import axios, { AxiosRequestConfig } from "axios";
 import { useRouter } from "next/router";
 import { DataContext } from "../e2e/DataContext";
-// @ts-ignore
-import hashlib from "hashlib";
 
 // Lottie
 import userLogin from "../assets/LottieFiles/user-login.json";
@@ -123,17 +121,21 @@ const LogRegisterPage: NextPage = () => {
 
     if (formDisplayed === "Log In") {
       await axios
-        .post(
-          `${process.env.NEXT_PUBLIC_NOT_BACKEND_URL}/auth/authenticate_user`,
-          data,
+        .get(
+          `${process.env.NEXT_PUBLIC_NOT_BACKEND_URL}/resource/get_user/${data.username}`,
           {
             headers: {
               AUTH_TOKEN: `${process.env.NEXT_PUBLIC_NOT_BACKEND_AUTH_TOKEN}`,
             },
           }
         )
-        .then((response) => {
-          if (response.data.status === 200) {
+        .then(async (response) => {
+          const result = await bcrypt.compare(
+            data.password_hash,
+            response.data.hash_pass
+          );
+
+          if (result) {
             toast.update(id, {
               render: `Welcome ${data.username}, redirecting...`,
               position: "top-right",
@@ -147,9 +149,6 @@ const LogRegisterPage: NextPage = () => {
             setTimeout(() => {
               router.push("/dashboard");
             }, 5500);
-            // } else {
-
-            // }
           } else {
             toast.update(id, {
               position: "top-left",
@@ -266,7 +265,7 @@ const LogRegisterPage: NextPage = () => {
             // @ts-ignore
             // prettier-ignore
             // handleSubmit({ username: e.currentTarget[0].value, password_hash: hashlib.sha512(e.currentTarget[1].value)});
-            handleSubmit({ username: e.currentTarget[0].value, password_hash: bcrypt.hashSync(e.currentTarget[1].value, transversalData.salt)});
+            handleSubmit({ username: e.currentTarget[0].value, password_hash: e.currentTarget[1].value});
           } else {
             // @ts-ignore
             // prettier-ignore
