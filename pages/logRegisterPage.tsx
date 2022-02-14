@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 import type { NextPage } from "next";
 import { motion } from "framer-motion";
 import bcrypt from "bcryptjs";
@@ -7,6 +7,9 @@ import anime from "animejs";
 import { toast } from "react-toastify";
 import axios, { AxiosRequestConfig } from "axios";
 import { useRouter } from "next/router";
+import { DataContext } from "../e2e/DataContext";
+// @ts-ignore
+import hashlib from "hashlib";
 
 // Lottie
 import userLogin from "../assets/LottieFiles/user-login.json";
@@ -18,6 +21,7 @@ const LogRegisterPage: NextPage = () => {
   const [formDisplayed, setFormDisplayed] = useState<FormDisplayed>("Log In");
   const [passwordState, setPasswordState] = useState<PasswordState>("Hidden");
   const [passwordState2, setPasswordState2] = useState<PasswordState>("Hidden");
+  const { transversalData } = useContext(DataContext);
 
   const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
@@ -118,91 +122,60 @@ const LogRegisterPage: NextPage = () => {
     });
 
     if (formDisplayed === "Log In") {
-      setTimeout(() => {
-        toast.update(id, {
-          render: `Welcome ${data.username}, redirecting...`,
-          position: "top-right",
-          type: "success",
-          closeOnClick: true,
-          hideProgressBar: false,
-          autoClose: 2500,
-          theme: "light",
-          isLoading: false,
-        });
-      }, 3000);
-      setTimeout(() => {
-        router.push("/dashboard");
-      }, 5500);
+      await axios
+        .post(
+          `${process.env.NEXT_PUBLIC_NOT_BACKEND_URL}/auth/authenticate_user`,
+          data,
+          {
+            headers: {
+              AUTH_TOKEN: `${process.env.NEXT_PUBLIC_NOT_BACKEND_AUTH_TOKEN}`,
+            },
+          }
+        )
+        .then((response) => {
+          if (response.data.status === 200) {
+            toast.update(id, {
+              render: `Welcome ${data.username}, redirecting...`,
+              position: "top-right",
+              type: "success",
+              closeOnClick: true,
+              hideProgressBar: false,
+              autoClose: 2500,
+              theme: "light",
+              isLoading: false,
+            });
+            setTimeout(() => {
+              router.push("/dashboard");
+            }, 5500);
+            // } else {
 
-      // await axios
-      //   .get(
-      //     `${process.env.NEXT_PUBLIC_NOT_BACKEND_URL}/resource/get_user/${data.username}`,
-      //     {
-      //       headers: {
-      //         AUTH_TOKEN: `${process.env.NEXT_PUBLIC_NOT_BACKEND_AUTH_TOKEN}`,
-      //       },
-      //     }
-      //   )
-      //   .then((response) => {
-      //     console.log(response);
-      //     if (response.data.status === 200) {
-      //       const passChecking = bcrypt.compareSync(
-      //         data.password_hash,
-      //         response.data.password_hash
-      //       );
-      //       console.log(passChecking);
-      //       if (passChecking) {
-      //         toast.update(id, {
-      //           render: `Welcome ${data.username}, redirecting...`,
-      //           position: "top-right",
-      //           type: "success",
-      //           closeOnClick: true,
-      //           hideProgressBar: false,
-      //           autoClose: 2500,
-      //           theme: "light",
-      //           isLoading: false,
-      //         });
-      //         setTimeout(() => {
-      //           router.push("/dashboard");
-      //         }, 5500);
-      //       } else {
-      //         toast.update(id, {
-      //           position: "top-left",
-      //           render: "Username or password wrong",
-      //           type: "error",
-      //           closeOnClick: true,
-      //           hideProgressBar: false,
-      //           autoClose: 5000,
-      //           theme: "light",
-      //           isLoading: false,
-      //         });
-      //       }
-      //     } else {
-      //       toast.update(id, {
-      //         position: "top-left",
-      //         render: "Error logging in, try again",
-      //         type: "error",
-      //         closeOnClick: true,
-      //         hideProgressBar: false,
-      //         autoClose: 5000,
-      //         theme: "light",
-      //         isLoading: false,
-      //       });
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     console.error(error);
-      //     toast.update(id, {
-      //       position: "top-left",
-      //       render: "Error logging in, try again",
-      //       type: "error",
-      //       closeOnClick: true,
-      //       hideProgressBar: false,
-      //       autoClose: 5000,
-      //       theme: "light",
-      //       isLoading: false,
-      //     });
-      //   });
+            // }
+          } else {
+            toast.update(id, {
+              position: "top-left",
+              render: "Error logging in, try again",
+              type: "error",
+              closeOnClick: true,
+              hideProgressBar: false,
+              autoClose: 5000,
+              theme: "light",
+              isLoading: false,
+            });
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          toast.update(id, {
+            position: "top-left",
+            render: "Error logging in, try again",
+            type: "error",
+            closeOnClick: true,
+            hideProgressBar: false,
+            autoClose: 5000,
+            theme: "light",
+            isLoading: false,
+          });
+        });
     } else if (formDisplayed === "Register") {
       await axios
         .post(
@@ -215,7 +188,6 @@ const LogRegisterPage: NextPage = () => {
           }
         )
         .then((response) => {
-          console.log(response);
           if (response.data.status === 200) {
             toast.update(id, {
               position: "top-left",
@@ -287,11 +259,20 @@ const LogRegisterPage: NextPage = () => {
         exit="exit"
         onSubmit={(e) => {
           e.preventDefault();
-          const salt = bcrypt.genSaltSync(10);
           // Comentarios importantes, no borrar
-          // @ts-ignore
-          // prettier-ignore
-          handleSubmit({ username: e.currentTarget[0].value, email: e.currentTarget[1].value, bio: "" ,  password_hash: bcrypt.hashSync(e.currentTarget[2].value, salt)});
+          if (formDisplayed === "Log In") {
+            // @ts-ignore
+            // prettier-ignore
+            // @ts-ignore
+            // prettier-ignore
+            // handleSubmit({ username: e.currentTarget[0].value, password_hash: hashlib.sha512(e.currentTarget[1].value)});
+            handleSubmit({ username: e.currentTarget[0].value, password_hash: bcrypt.hashSync(e.currentTarget[1].value, transversalData.salt)});
+          } else {
+            // @ts-ignore
+            // prettier-ignore
+            // handleSubmit({ username: e.currentTarget[0].value, email: e.currentTarget[1].value, bio: "" ,  password_hash: hashlib.sha512(e.currentTarget[2].value)});
+            handleSubmit({ username: e.currentTarget[0].value, email: e.currentTarget[1].value, bio: "" ,  password_hash: bcrypt.hashSync(e.currentTarget[2].value, transversalData.salt)});
+          }
         }}
       >
         <h1>{formDisplayed}</h1>
@@ -301,10 +282,10 @@ const LogRegisterPage: NextPage = () => {
               <label htmlFor="user">Username</label>
               <input required type="text" />
             </li>
-            <li>
+            {/* <li>
               <label htmlFor="email">Email</label>
               <input required type="email" />
-            </li>
+            </li> */}
             <li>
               <label htmlFor="password">Password</label>
               <input
@@ -349,12 +330,7 @@ const LogRegisterPage: NextPage = () => {
             </li>
             <li>
               <label>{""}</label>
-              <input
-                required
-                className="button"
-                value="Iniciar Sesión"
-                type="submit"
-              />
+              <input required className="button" type="submit" />
             </li>
             <li
               className="footer"

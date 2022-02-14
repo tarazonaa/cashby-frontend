@@ -25,6 +25,7 @@
     "bcryptjs": "^2.4.3",
     "drei": "2.2.21",
     "framer-motion": "^5.5.5",
+    "hashlib": "^1.0.1",
     "lottie-react": "^2.1.0",
     "next": "12.0.7",
     "react": "17.0.2",

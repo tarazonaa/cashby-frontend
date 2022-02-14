@@ -41,6 +41,7 @@ declare global {
   interface TransversalData {
     scrollPositionReached: boolean;
     loggedIn: boolean;
+    salt: any;
   }
 
   interface SocialsUrls {
