@@ -96,6 +96,8 @@ const GlobalNav: React.FC = () => {
 
         {CreateLink("/aboutPage", "Docs")}
 
+        {CreateLink("/mint", "Mint Tickets")}
+
         {transversalData.loggedIn && CreateLink("/landsPage", "Lands")}
 
         {transversalData.loggedIn &&

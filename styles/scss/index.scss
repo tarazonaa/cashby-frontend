@@ -13,3 +13,27 @@
 
 // Responsive CSS
 @import "./responsive/mobileOpt";
+
+.mintPage {
+  @include alignCenter;
+
+  button {
+    height: 300px;
+    // @include GradientColorText(
+    //   right,
+    //   var(--PrimaryColor),
+    //   var(--TertiaryColor)
+    // );
+    text-align: center;
+    padding: 0px 40px;
+    background: linear-gradient(
+      to right,
+      var(--PrimaryColor),
+      var(--TertiaryColor)
+    );
+    color: white;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 2rem;
+  }
+}
