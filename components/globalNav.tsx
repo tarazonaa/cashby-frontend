@@ -59,11 +59,7 @@ const GlobalNav: React.FC = () => {
   };
 
   return (
-    <div
-      className={`GlobalNav ${
-        transversalData.scrollPositionReached ? "gradientNav" : "transparentNav"
-      }`}
-    >
+    <div className={"GlobalNav transparentNav"}>
       <div className="logoContainer">
         {transversalData.scrollPositionReached ? (
           <>

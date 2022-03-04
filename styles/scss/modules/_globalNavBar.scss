@@ -11,7 +11,7 @@
   .logoContainer,
   ul {
     position: relative;
-    margin: 0px 5%;
+    margin: 0px 3%;
   }
   ul {
     width: 50%;
@@ -190,7 +190,7 @@
       width: 300px;
       height: calc(100vh - 70px);
       background-color: hsla(240, 84%, 5%, 0.6);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(15px);
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
@@ -219,5 +219,19 @@
   .NavHidden {
     transform: translateX(300px);
     transition: transform 500ms;
+  }
+
+  .transparentNav {
+    ul {
+      .logRegisterItem {
+        border: 2px solid transparent;
+        background-color: transparent !important;
+        border-bottom: 1px solid var(--TertiaryColor) !important;
+      }
+
+      li {
+        border-bottom: 1px solid var(--SecondaryColor) !important;
+      }
+    }
   }
 }

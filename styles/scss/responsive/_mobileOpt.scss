@@ -1,17 +1,3 @@
-@media (max-width: 300px) {
-  .IndexPage {
-    .InitBlock {
-      .leftContainer {
-        .hexagon1,
-        .hexagon2,
-        .hexagon3 {
-          transform: scale(0.25);
-        }
-      }
-    }
-  }
-}
-
 @media (max-width: 400px) {
   .IndexPage {
     .InitBlock {
@@ -19,9 +5,101 @@
         .hexagon1,
         .hexagon2,
         .hexagon3 {
-          transform: scale(0.48);
+          transform: scale(0.35);
+        }
+        .AnimationContainer {
+          transform: translate(5.2px, 4.5px);
+
+          > * {
+            transform: scale(1.2);
+          }
         }
       }
+    }
+    .SecondBlock {
+      .mainContainer {
+        height: 80% !important;
+        flex-direction: column-reverse;
+
+        .leftContainer,
+        .rightContainer {
+          width: 100%;
+          height: 50%;
+        }
+      }
+      .bottomContainer {
+        height: 10%;
+      }
+    }
+    .ThirdBlock {
+      .leftContainer {
+        justify-content: space-evenly;
+
+        h1 {
+          top: 0;
+          left: 0px;
+          width: 100%;
+          margin: 0;
+          position: absolute;
+          @include alignCenter;
+        }
+
+        // p {
+        //   margin-top: 10%;
+        // }
+        .dataBox {
+          height: 40%;
+          .h2box {
+            flex-direction: column !important;
+            justify-content: center;
+
+            p {
+              margin: 0px 5%;
+            }
+
+            h2 {
+              margin-right: auto;
+            }
+          }
+        }
+      }
+
+      .rightContainer {
+        .gltfContainer {
+          transform: scale(0.85) translateX(15px);
+        }
+
+        .hologramBase {
+          height: 15%;
+          bottom: 20%;
+        }
+
+        .blush {
+          height: 50%;
+        }
+
+        .leftArrow,
+        .rightArrow {
+          bottom: 20px;
+        }
+      }
+    }
+  }
+
+  .LogRegisterPage {
+    .lottieContainer,
+    form {
+      position: absolute;
+    }
+
+    form {
+      width: 100%;
+      height: 100%;
+      border-radius: 0px;
+    }
+
+    .lottieContainer {
+      display: none;
     }
   }
 }

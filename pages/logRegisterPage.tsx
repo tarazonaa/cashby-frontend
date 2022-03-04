@@ -33,68 +33,70 @@ const LogRegisterPage: NextPage = () => {
       duration: globalAnimationDuration,
     });
 
-    if (desiredForm === "Log In") {
-      tl.add({
-        targets: ".logRegisterForm",
-        translateX: ["100%", "0%"],
-      });
+    if (window.innerWidth >= 500) {
+      if (desiredForm === "Log In") {
+        tl.add({
+          targets: ".logRegisterForm",
+          translateX: ["100%", "0%"],
+        });
 
-      tl.add(
-        {
-          targets: ".lottieContainer",
-          translateX: ["-100%", "0%"],
-        },
-        `-=${globalAnimationDuration}`
-      );
+        tl.add(
+          {
+            targets: ".lottieContainer",
+            translateX: ["-100%", "0%"],
+          },
+          `-=${globalAnimationDuration}`
+        );
 
-      tl.add(
-        {
-          targets: ".ball2",
-          scale: 1,
-          translateX: 0,
-          translateY: 0,
-        },
-        `-=${(globalAnimationDuration / 3) * 2}`
-      );
+        tl.add(
+          {
+            targets: ".ball2",
+            scale: 1,
+            translateX: 0,
+            translateY: 0,
+          },
+          `-=${(globalAnimationDuration / 3) * 2}`
+        );
 
-      tl.add(
-        {
-          targets: ".ball1",
-          scale: 1,
-        },
-        `-=${(globalAnimationDuration / 3) * 2}`
-      );
-    } else {
-      tl.add({
-        targets: ".logRegisterForm",
-        translateX: ["0%", "100%"],
-      });
+        tl.add(
+          {
+            targets: ".ball1",
+            scale: 1,
+          },
+          `-=${(globalAnimationDuration / 3) * 2}`
+        );
+      } else {
+        tl.add({
+          targets: ".logRegisterForm",
+          translateX: ["0%", "100%"],
+        });
 
-      tl.add(
-        {
-          targets: ".lottieContainer",
-          translateX: ["0%", "-100%"],
-        },
-        `-=${globalAnimationDuration}`
-      );
+        tl.add(
+          {
+            targets: ".lottieContainer",
+            translateX: ["0%", "-100%"],
+          },
+          `-=${globalAnimationDuration}`
+        );
 
-      tl.add(
-        {
-          targets: ".ball2",
-          scale: 0.6,
-          translateX: -150,
-          translateY: -150,
-        },
-        `-=${(globalAnimationDuration / 3) * 2}`
-      );
+        tl.add(
+          {
+            targets: ".ball2",
+            scale: 0.6,
+            translateX: -150,
+            translateY: -150,
+          },
+          `-=${(globalAnimationDuration / 3) * 2}`
+        );
 
-      tl.add(
-        {
-          targets: ".ball1",
-          scale: 1.5,
-        },
-        `-=${(globalAnimationDuration / 3) * 2}`
-      );
+        tl.add(
+          {
+            targets: ".ball1",
+            scale: 1.5,
+          },
+          `-=${(globalAnimationDuration / 3) * 2}`
+        );
+      }
     }
 
     tl.add(

@@ -215,29 +215,30 @@
 
     .mainContainer,
     .bottomContainer {
-      // border: 1px solid lightcoral;
-      display: flex;
-      flex-wrap: wrap;
       width: 100%;
     }
 
     .mainContainer {
       height: 70%;
+      @include alignCenter;
+      flex-direction: row;
+      justify-content: center;
 
       .leftContainer,
       .rightContainer {
-        flex: 1 1;
-        @include alignCenter;
-        max-height: 100%;
+        position: relative;
+        // @include alignCenter;
+        height: 100%;
       }
 
       .leftContainer {
-        max-width: 40%;
+        width: 40%;
       }
 
       .rightContainer {
         @include alignCenter;
         flex-direction: column;
+        width: 60%;
         justify-content: space-evenly;
         border-left: 2px solid var(--SecondaryColor);
 
@@ -348,8 +349,9 @@
 
           li,
           p {
-            height: 60%;
+            height: 50%;
             margin: 0;
+            overflow: scroll;
             // line-height: 40px;
           }
         }
@@ -463,13 +465,14 @@
       flex-wrap: wrap;
       justify-content: space-evenly;
       align-items: center;
+      overflow: scroll;
 
       .Bubble {
         position: relative;
         background-color: var(--SecondaryColor);
         float: left;
-        width: 250px;
-        height: 250px;
+        width: clamp(200px, 20vw, 230px);
+        height: clamp(200px, 20vw, 230px);
         border-radius: 50%;
         margin: 10px 25px;
         @include alignCenter;

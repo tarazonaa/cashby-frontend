@@ -43,7 +43,7 @@ const Home: NextPage = () => {
         <title>Cashby - Home</title>
         <meta
           name="description"
-          content="Cashby kickstarter, la mejor manera de invertir en inmuebles"
+          content="Cashby, the metaverse real-estate crowdfunding platform"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
