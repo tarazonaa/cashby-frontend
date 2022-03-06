@@ -1,5 +1,5 @@
-import "react-toastify/dist/ReactToastify.css";
 import "../styles/css/globals.min.css";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/css/index.min.css";
 
 import React from "react";

@@ -101,8 +101,8 @@
     }
 
     .logRegisterItem {
-      padding: 5px 15px;
       @include GenericButtonStyle(var(--SecondaryColor));
+      padding: 5px 8px;
     }
   }
 }

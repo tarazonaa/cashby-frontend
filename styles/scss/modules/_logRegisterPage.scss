@@ -22,13 +22,15 @@
 
     h1 {
       text-align: center;
-      height: 15%;
-      @include alignCenter;
+      // height: 15%;
+      margin-top: 5%;
+      // @include alignCenter;
       @include GradientColorText(
         var(--PrimaryColor),
         var(--SecondaryColor),
         right
       );
+      // color: var(--SecondaryColor);
     }
 
     ul {
@@ -121,16 +123,19 @@
       background-color: hsla(165, 50%, 59%, 0.2);
       backdrop-filter: blur(30px);
       @include alignCenter;
+      overflow: hidden;
     }
 
     .logInLottie {
       > * {
-        transform: scale(7);
+        width: 90%;
+        height: 90%;
       }
     }
     .registerLottie {
       > * {
-        transform: scale(3);
+        width: 105%;
+        height: 105%;
       }
     }
 

@@ -53,6 +53,8 @@
     }
 
     .leftContainer {
+      @include alignCenter;
+
       .hexagon1 {
         position: absolute;
         z-index: 3;
@@ -149,13 +151,16 @@
       }
 
       .AnimationContainer {
+        position: absolute;
         width: 100%;
         height: 100%;
         z-index: 4;
         @include alignCenter;
 
         > * {
-          transform: scale(1.5);
+          width: 100%;
+          height: 100%;
+          transform: scale(1.4);
         }
       }
     }
@@ -168,14 +173,6 @@
       > * {
         position: relative;
         margin: 0px 15%;
-      }
-
-      h1 {
-        @include GradientColorText(
-          var(--PrimaryColor),
-          var(--TertiaryColor),
-          left
-        );
       }
 
       p {
@@ -446,21 +443,19 @@
     overflow: hidden;
 
     h1 {
+      // position: relative;
       height: 20%;
-      @include alignCenter;
-      justify-content: flex-start;
-      @include GradientColorText(
-        var(--PrimaryColor),
-        var(--TertiaryColor),
-        right
-      );
-      margin-right: auto;
-      margin-left: 10%;
+      // @include alignCenter;
+
+      // justify-content: flex-start;
+      // margin-right: auto;
+      // margin-left: 10%;
     }
 
     .membersContainer {
       position: relative;
       width: 100%;
+      height: 80%;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
@@ -471,8 +466,8 @@
         position: relative;
         background-color: var(--SecondaryColor);
         float: left;
-        width: clamp(200px, 20vw, 230px);
-        height: clamp(200px, 20vw, 230px);
+        width: clamp(200px, 20vw, 251px);
+        height: clamp(200px, 20vw, 251px);
         border-radius: 50%;
         margin: 10px 25px;
         @include alignCenter;
@@ -679,16 +674,18 @@
     .Footersfooter {
       width: 100%;
       height: 20%;
-      background: linear-gradient(
-        to left,
-        var(--PrimaryColor),
-        var(--TertiaryColor)
-      );
+      background-color: transparent;
       @include alignCenter;
+      border-top: 1px solid var(--SecondaryColor);
 
       p {
         color: var(--BackgroundColor);
         font-weight: bolder;
+        @include GradientColorText(
+          var(--PrimaryColor),
+          var(--TertiaryColor),
+          left
+        );
       }
     }
   }
