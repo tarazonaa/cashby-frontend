@@ -44,21 +44,21 @@ const FadeDownTransitionVariants = {
     y: -300,
     opacity: 0,
     transition: {
-      duration: 0.7,
+      duration: 1.5,
     },
   },
   animate: {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.7,
+      duration: 1.5,
     },
   },
   exit: {
     y: -300,
     opacity: 0,
     transition: {
-      duration: 0.7,
+      duration: 1.5,
     },
   },
 };

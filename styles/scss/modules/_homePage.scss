@@ -62,11 +62,11 @@
         width: clamp(50px, 25vw, 400px);
         height: clamp(50px, 25vw, 400px);
         background-color: transparent;
-        // background: linear-gradient(
-        //   to right,
-        //   var(--PrimaryColor),
-        //   var(--TertiaryColor)
-        // );
+        background: linear-gradient(
+          to right,
+          var(--PrimaryColor),
+          var(--TertiaryColor)
+        );
         box-shadow: -50px -50px 80px 25px var(--PrimaryColor),
           50px 50px 80px 25px var(--TertiaryColor),
           -50px 50px 80px 25px var(--PrimaryColor),
