@@ -19,25 +19,25 @@ const Home: NextPage = () => {
     <div
       className="IndexPage"
       id="LinkPage"
-      onScroll={(e) => {
-        if (
-          e.currentTarget.scrollTop === 0 &&
-          transversalData.scrollPositionReached
-        ) {
-          setTransversalData({
-            ...transversalData,
-            scrollPositionReached: false,
-          });
-        } else if (
-          e.currentTarget.scrollTop >= 550 &&
-          !transversalData.scrollPositionReached
-        ) {
-          setTransversalData({
-            ...transversalData,
-            scrollPositionReached: true,
-          });
-        }
-      }}
+      // onScroll={(e) => {
+      //   if (
+      //     e.currentTarget.scrollTop === 0 &&
+      //     transversalData.scrollPositionReached
+      //   ) {
+      //     setTransversalData({
+      //       ...transversalData,
+      //       scrollPositionReached: false,
+      //     });
+      //   } else if (
+      //     e.currentTarget.scrollTop >= 550 &&
+      //     !transversalData.scrollPositionReached
+      //   ) {
+      //     setTransversalData({
+      //       ...transversalData,
+      //       scrollPositionReached: true,
+      //     });
+      //   }
+      // }}
     >
       <Head>
         <title>Cashby - Home</title>

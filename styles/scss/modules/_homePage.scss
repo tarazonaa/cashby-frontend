@@ -57,101 +57,119 @@
 
       .hexagon1 {
         position: absolute;
-        z-index: 3;
-        width: 550px;
-        height: 317.54px;
-        background-color: var(--PrimaryColor);
-        margin: 158.77px 0;
+        z-index: 0;
+        border-radius: 50%;
+        width: clamp(50px, 25vw, 400px);
+        height: clamp(50px, 25vw, 400px);
+        background-color: transparent;
+        // background: linear-gradient(
+        //   to right,
+        //   var(--PrimaryColor),
+        //   var(--TertiaryColor)
+        // );
+        box-shadow: -50px -50px 80px 25px var(--PrimaryColor),
+          50px 50px 80px 25px var(--TertiaryColor),
+          -50px 50px 80px 25px var(--PrimaryColor),
+          50px -50px 80px 25px var(--TertiaryColor);
       }
 
-      .hexagon1:before,
-      .hexagon1:after {
-        content: "";
-        position: absolute;
-        width: 0;
-        border-left: 275px solid transparent;
-        border-right: 275px solid transparent;
-      }
+      // .hexagon1 {
+      //   position: absolute;
+      //   z-index: 3;
+      //   width: 550px;
+      //   height: 317.54px;
+      //   background-color: var(--PrimaryColor);
+      //   margin: 158.77px 0;
+      // }
 
-      .hexagon1:before {
-        bottom: 100%;
-        border-bottom: 158.77px solid var(--PrimaryColor);
-      }
+      // .hexagon1:before,
+      // .hexagon1:after {
+      //   content: "";
+      //   position: absolute;
+      //   width: 0;
+      //   border-left: 275px solid transparent;
+      //   border-right: 275px solid transparent;
+      // }
 
-      .hexagon1:after {
-        top: 100%;
-        width: 0;
-        border-top: 158.77px solid var(--PrimaryColor);
-      }
+      // .hexagon1:before {
+      //   bottom: 100%;
+      //   border-bottom: 158.77px solid var(--PrimaryColor);
+      // }
 
-      .hexagon2 {
-        position: relative;
-        width: 580px;
-        height: 334.86px;
-        background-color: var(--SecondaryColor);
-        margin: 167.43px 0;
-        z-index: 2;
-      }
+      // .hexagon1:after {
+      //   top: 100%;
+      //   width: 0;
+      //   border-top: 158.77px solid var(--PrimaryColor);
+      // }
 
-      .hexagon2:before,
-      .hexagon2:after {
-        content: "";
-        position: absolute;
-        width: 0;
-        border-left: 290px solid transparent;
-        border-right: 290px solid transparent;
-      }
+      // .hexagon2 {
+      //   position: relative;
+      //   width: 580px;
+      //   height: 334.86px;
+      //   background-color: var(--SecondaryColor);
+      //   margin: 167.43px 0;
+      //   z-index: 2;
+      // }
 
-      .hexagon2:before {
-        bottom: 100%;
-        border-bottom: 167.43px solid var(--SecondaryColor);
-      }
+      // .hexagon2:before,
+      // .hexagon2:after {
+      //   content: "";
+      //   position: absolute;
+      //   width: 0;
+      //   border-left: 290px solid transparent;
+      //   border-right: 290px solid transparent;
+      // }
 
-      .hexagon2:after {
-        top: 100%;
-        width: 0;
-        border-top: 167.43px solid var(--SecondaryColor);
-      }
+      // .hexagon2:before {
+      //   bottom: 100%;
+      //   border-bottom: 167.43px solid var(--SecondaryColor);
+      // }
 
-      .hexagon3 {
-        position: relative;
-        width: 610px;
-        height: 352.18px;
-        background-color: var(--TertiaryColor);
-        margin: 176.09px 0;
-        z-index: 1;
-      }
+      // .hexagon2:after {
+      //   top: 100%;
+      //   width: 0;
+      //   border-top: 167.43px solid var(--SecondaryColor);
+      // }
 
-      .hexagon3:before,
-      .hexagon3:after {
-        content: "";
-        position: absolute;
-        width: 0;
-        border-left: 305px solid transparent;
-        border-right: 305px solid transparent;
-      }
+      // .hexagon3 {
+      //   position: relative;
+      //   width: 610px;
+      //   height: 352.18px;
+      //   background-color: var(--TertiaryColor);
+      //   margin: 176.09px 0;
+      //   z-index: 1;
+      // }
 
-      .hexagon3:before {
-        bottom: 100%;
-        border-bottom: 176.09px solid var(--TertiaryColor);
-      }
+      // .hexagon3:before,
+      // .hexagon3:after {
+      //   content: "";
+      //   position: absolute;
+      //   width: 0;
+      //   border-left: 305px solid transparent;
+      //   border-right: 305px solid transparent;
+      // }
 
-      .hexagon3:after {
-        top: 100%;
-        width: 0;
-        border-top: 176.09px solid var(--TertiaryColor);
-      }
+      // .hexagon3:before {
+      //   bottom: 100%;
+      //   border-bottom: 176.09px solid var(--TertiaryColor);
+      // }
 
-      .hexagon1,
-      .hexagon2,
-      .hexagon3 {
-        position: absolute;
-        opacity: 1;
-        margin-left: 2%;
-        margin-top: auto;
-        margin-bottom: auto;
-        // inset: 0;
-      }
+      // .hexagon3:after {
+      //   top: 100%;
+      //   width: 0;
+      //   border-top: 176.09px solid var(--TertiaryColor);
+      // }
+
+      // .hexagon1,
+      // .hexagon2,
+      // .hexagon3 {
+      //   position: absolute;
+      //   opacity: 1;
+      //   margin-left: 2%;
+      //   margin-top: auto;
+      //   margin-bottom: auto;
+      //   // inset: 0;
+      // }
 
       .AnimationContainer {
         position: absolute;
@@ -447,7 +465,8 @@
 
     h1 {
       // position: relative;
-      height: 20%;
+      @include alignCenter;
+      height: 70px;
       // @include alignCenter;
 
       // justify-content: flex-start;
@@ -640,7 +659,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 400px;
-    margin-top: 100px;
+    margin-top: clamp(10px, 5vw, 100px);
 
     .listsContainer {
       width: 100%;

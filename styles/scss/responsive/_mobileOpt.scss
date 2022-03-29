@@ -2,11 +2,11 @@
   .IndexPage {
     .InitBlock {
       .leftContainer {
-        .hexagon1,
-        .hexagon2,
-        .hexagon3 {
-          transform: scale(0.35);
-        }
+        // .hexagon1,
+        // .hexagon2,
+        // .hexagon3 {
+        //   transform: scale(0.35);
+        // }
         .AnimationContainer {
           transform: translate(5.2px, 4.5px);
 
@@ -83,6 +83,11 @@
           bottom: 20px;
         }
       }
+    }
+
+    .TeamBlock {
+      min-height: 1800px;
+      margin-bottom: 0;
     }
   }
 
