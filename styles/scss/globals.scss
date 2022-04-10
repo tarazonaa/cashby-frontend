@@ -1,15 +1,10 @@
+// @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Chakra+Petch&family=Kanit:wght@300&family=Lobster&family=Pacifico&family=Play:wght@700&family=Rubik+Moonrocks&family=Staatliches&family=Teko:wght@300&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200&family=Cairo&family=Lato:wght@300&family=Rajdhani:wght@300&family=Source+Code+Pro:wght@600&family=Ubuntu+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&family=Staatliches&display=swap");
 
 @import "./themes/colors";
 @import "./themes/functions";
 
-// font-family: 'Abril Fatface', cursive;
-// font-family: 'Anton', sans-serif;
-// font-family: 'Kanit', sans-serif;
-// font-family: 'Lobster', cursive;
-// font-family: 'Pacifico', cursive;
-// font-family: 'Rubik Moonrocks', cursive;
-// font-family: 'Teko', sans-serif;
 // font-family: "Abril Fatface", cursive;
 // font-family: "Anton", sans-serif;
 // font-family: "Chakra Petch", sans-serif;
@@ -72,6 +67,15 @@ h1 {
   @include GradientColorText(var(--PrimaryColor), var(--TertiaryColor), left);
 
   font-family: "Staatliches", cursive;
+  // font-family: "Abril Fatface", cursive;
+  // font-family: "Anton", sans-serif;
+  // font-family: "Chakra Petch", sans-serif;
+  // font-family: "Kanit", sans-serif;
+  // font-family: "Lobster", cursive;
+  // font-family: "Pacifico", cursive;
+  // font-family: "Play", sans-serif;
+  // font-family: "Rubik Moonrocks", cursive;
+  // font-family: "Teko", sans-serif;
 }
 
 h2 {
@@ -105,6 +109,16 @@ a,
 li,
 p {
   font-family: "Source Code Pro", monospace;
+  font-weight: bold;
+  // font-family: "Abril Fatface", cursive;
+  // font-family: "Anton", sans-serif;
+  // font-family: "Chakra Petch", sans-serif;
+  // font-family: "Kanit", sans-serif;
+  // font-family: "Lobster", cursive;
+  // font-family: "Pacifico", cursive;
+  // font-family: "Play", sans-serif;
+  // font-family: "Rubik Moonrocks", cursive;
+  // font-family: "Teko", sans-serif;
 }
 
 // @media (max-width: 400px) {
