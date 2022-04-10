@@ -27,14 +27,16 @@
   outline: none;
   border: 1px solid transparent;
   transition: background-color 500ms, border 500ms, color 500ms;
-  background-color: var(--BGColor);
-  border: 1px solid $color-value;
-  color: $color-value;
+  background-color: var(--SecondaryColor);
+  // border: 1px solid $color-value;
+  // color: $color-value;
+  border: 1px solid var(--BGColor);
+  color: var(--BGColor);
   padding: clamp(5px, 4vw, 20px) clamp(10px, 2vw, 40px);
 
   a,
   p {
-    color: $color-value;
+    color: var(--BGColor);
   }
 
   &::after {

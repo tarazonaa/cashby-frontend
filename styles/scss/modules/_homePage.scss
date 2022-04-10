@@ -14,7 +14,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
     overflow: hidden;
   }
 
@@ -230,6 +230,19 @@
     @include alignCenter;
     flex-direction: column;
     justify-content: space-evenly;
+    background: #d9d6d6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to bottom,
+      #d9d6d6,
+      #e8e265,
+      #d9d6d6
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to bottom,
+      #d9d6d6,
+      #e8e265,
+      #d9d6d6
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     .mainContainer,
     .bottomContainer {
@@ -280,11 +293,12 @@
       position: relative;
       overflow: hidden;
       height: 18%;
-      background: linear-gradient(
-        to right,
-        var(--PrimaryColor),
-        var(--TertiaryColor)
-      );
+      // background: linear-gradient(
+      //   to right,
+      //   var(--PrimaryColor),
+      //   var(--TertiaryColor)
+      // );
+      border: 1px solid white;
 
       .slider {
         position: relative;
@@ -309,6 +323,20 @@
   .ThirdBlock {
     display: flex;
     flex-wrap: wrap;
+
+    background: #eea18f; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to bottom,
+      #d9d6d6,
+      #eea18f,
+      #d9d6d6
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to bottom,
+      #d9d6d6,
+      #eea18f,
+      #d9d6d6
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     .leftContainer,
     .rightContainer {
@@ -462,6 +490,19 @@
     flex-direction: column;
     justify-content: space-evenly;
     overflow: hidden;
+    background: #d9d6d6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to bottom,
+      #d9d6d6,
+      #83f4e5,
+      #d9d6d6
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to bottom,
+      #d9d6d6,
+      #83f4e5,
+      #d9d6d6
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     h1 {
       // position: relative;

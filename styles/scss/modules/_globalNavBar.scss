@@ -19,9 +19,18 @@
 
   .logoContainer {
     cursor: pointer;
-    width: 150px;
+    width: 110px;
     height: 80%;
     @include alignCenter;
+
+    p {
+      margin-left: 10px;
+      color: var(--SecondaryColor);
+    }
+
+    svg {
+      fill: var(--SecondaryColor);
+    }
   }
 
   .burguer {
@@ -54,7 +63,8 @@
 }
 
 .transparentNav {
-  background-color: transparent;
+  // background-color: transparent;
+  background-color: var(--NavBarColor);
   transition: background-color 1s;
 
   ul {
