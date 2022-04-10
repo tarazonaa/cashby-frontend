@@ -46,13 +46,6 @@ const Home: NextPage = () => {
           content="Cashby, the metaverse real-estate crowdfunding platform"
         />
         <link rel="icon" href="/favicon.ico" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&family=Staatliches&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <InitBlock />
       <SecondBlock />
