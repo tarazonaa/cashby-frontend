@@ -40,6 +40,22 @@ const GlobalNav: React.FC = () => {
           <a>{title}</a>
         </li>
       );
+    } else if (title === "Log Out") {
+      return (
+        <li
+          className="logRegisterItem"
+          onClick={() => {
+            setNavBarState("NavHidden");
+            router.push("/");
+            setTransversalData({
+              ...transversalData,
+              loggedIn: false,
+            });
+          }}
+        >
+          <a>{title}</a>
+        </li>
+      );
     } else {
       return (
         <li
@@ -223,12 +239,15 @@ const GlobalNav: React.FC = () => {
 
         {CreateLink("/mint", "Invest")}
 
-        {/* {transversalData.loggedIn && CreateLink("/landsPage", "Lands")} */}
+        {transversalData.loggedIn && CreateLink("/dashboard", "Dashboard")}
 
         {transversalData.loggedIn &&
           CreateLink("/scoreboardPage", "Scoreboard")}
 
-        {CreateLink("/logRegisterPage", "Log In or Register")}
+        {transversalData.loggedIn && CreateLink("", "Log Out")}
+
+        {transversalData.loggedIn === false &&
+          CreateLink("/logRegisterPage", "Log In or Register")}
       </ul>
       <div
         className={`burguer ${navBarState === "NavHidden" ? "" : "xBurguer"}`}
