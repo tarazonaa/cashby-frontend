@@ -103,9 +103,10 @@ const TeamBlock: React.FC = () => {
           linkedin: "https://www.linkedin.com/in/joel-martinez-espinosa/",
         })}
         {CreateTeamMember("Marco Vázquez", "Designer", Marco, {
-          instagram: "",
-          twitter: "",
-          linkedin: "",
+          instagram: "https://www.instagram.com/marcovzq.nft/",
+          twitter: "https://twitter.com/xMarcoAx",
+          linkedin:
+            "https://www.linkedin.com/in/marco-antonio-vázquez-espinosa-938728231/",
         })}
       </div>
     </section>
