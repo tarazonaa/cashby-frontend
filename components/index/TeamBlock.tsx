@@ -102,7 +102,7 @@ const TeamBlock: React.FC = () => {
           twitter: "https://twitter.com/JoelErickMartn1",
           linkedin: "https://www.linkedin.com/in/joel-martinez-espinosa/",
         })}
-        {CreateTeamMember("Marco Vázquez", "---", Marco, {
+        {CreateTeamMember("Marco Vázquez", "Designer", Marco, {
           instagram: "",
           twitter: "",
           linkedin: "",

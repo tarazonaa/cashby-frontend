@@ -1,8 +1,9 @@
 // import "../styles/css/globals.min.css";
 // import "../styles/css/index.min.css";
+import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";
-import "../styles/scss/index.scss";
 import "../styles/scss/globals.scss";
+import "../styles/scss/index.scss";
 
 import React from "react";
 import type { AppProps } from "next/app";
@@ -13,7 +14,6 @@ import { ToastContainer } from "react-toastify";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
-    // <div className="Layout">
     <DataContextProvider>
       <GlobalNav />
       <ToastContainer />
@@ -21,7 +21,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
     </DataContextProvider>
-    // </div>
   );
 }
 

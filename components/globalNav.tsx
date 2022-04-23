@@ -1,12 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Link from "next/link";
-import LogoCashby from "../assets/Images/NewLogo.svg";
-import Image from "next/image";
 import { DataContext } from "../e2e/DataContext";
+import { useRouter } from "next/router";
+import { Switch } from "antd";
 
 const GlobalNav: React.FC = () => {
   const { transversalData, setTransversalData } = useContext(DataContext);
   const [navBarState, setNavBarState] = useState<NavBarState>("NavHidden");
+  const [pageColor, setPageColor] = useState<"fancy" | "hacker">("fancy");
+  const router = useRouter();
 
   const CreateLink = (href: string, title: string) => {
     if (title === "Docs") {
@@ -28,15 +30,14 @@ const GlobalNav: React.FC = () => {
           className="logRegisterItem"
           onClick={() => {
             setNavBarState("NavHidden");
+            router.push(href);
             setTransversalData({
               ...transversalData,
               scrollPositionReached: false,
             });
           }}
         >
-          <Link href={href}>
-            <a>{title}</a>
-          </Link>
+          <a>{title}</a>
         </li>
       );
     } else {
@@ -44,32 +45,58 @@ const GlobalNav: React.FC = () => {
         <li
           onClick={() => {
             setNavBarState("NavHidden");
+            router.push(href);
             setTransversalData({
               ...transversalData,
               scrollPositionReached: false,
             });
           }}
         >
-          <Link href={href}>
-            <a>{title}</a>
-          </Link>
+          <a>{title}</a>
         </li>
       );
     }
   };
 
+  useEffect(() => {
+    const root = document.documentElement;
+
+    if (pageColor === "fancy") {
+      root.style.setProperty("--PrimaryColor", "#9a8478");
+      root.style.setProperty("--TertiaryColor", "#1e130c");
+      root.style.setProperty("--SecondaryColor", "#ad8a63");
+      root.style.setProperty("--QuaternaryColor", "#332014a2");
+      root.style.setProperty("--BGColor", "#d9d6d6");
+      root.style.setProperty("--TextGenericColor", "#020217");
+
+      root.style.setProperty("--HomeLightColor1", "#e7e5c5");
+      root.style.setProperty("--HomeLightColor2", "#ebd9d5");
+      root.style.setProperty("--HomeLightColor3", "#cae7e3");
+    } else {
+      root.style.setProperty("--PrimaryColor", "#2271b3");
+      root.style.setProperty("--TertiaryColor", "#6fb544");
+      root.style.setProperty("--SecondaryColor", "#61cbb0");
+      root.style.setProperty("--QuaternaryColor", "#61cbb0");
+      root.style.setProperty("--BGColor", "#020217");
+      root.style.setProperty("--TextGenericColor", "white");
+
+      root.style.setProperty("--HomeLightColor1", "#423f12");
+      root.style.setProperty("--HomeLightColor2", "#2c110b");
+      root.style.setProperty("--HomeLightColor3", "#0e3a34");
+    }
+  }, [pageColor]);
+
   return (
     <div className={"GlobalNav transparentNav"}>
-      <div className="logoContainer">
+      <div
+        className="logoContainer"
+        onClick={() =>
+          !transversalData.scrollPositionReached && router.push("/")
+        }
+      >
         {transversalData.scrollPositionReached ? (
           <>
             <a href="#InitBlock">
-              {/* <Image
-                width={50}
-                height={50}
-                alt="cashby logo"
-                src={LogoCashby}
-              /> */}
               <svg
                 id="Capa_4"
                 data-name="Capa 4"
@@ -115,12 +142,6 @@ const GlobalNav: React.FC = () => {
         ) : (
           <>
             <Link href="/" passHref>
-              {/* <Image
-                width={50}
-                height={50}
-                alt="cashby logo"
-                src={LogoCashby}
-              /> */}
               <svg
                 id="Capa_4"
                 data-name="Capa 4"
@@ -166,11 +187,41 @@ const GlobalNav: React.FC = () => {
         )}
       </div>
       <ul className={navBarState}>
-        {CreateLink("/", "Home")}
+        <li>
+          <Switch
+            onClick={() =>
+              setPageColor(pageColor === "fancy" ? "hacker" : "fancy")
+            }
+            checkedChildren={
+              <h4
+                style={{
+                  height: "100%",
+                  display: "grid",
+                  placeItems: "center",
+                }}
+              >
+                🌚
+              </h4>
+            }
+            unCheckedChildren={
+              <h4
+                style={{
+                  height: "100%",
+                  display: "grid",
+                  placeItems: "center",
+                }}
+              >
+                🌝
+              </h4>
+            }
+            size="default"
+            defaultChecked
+          />
+        </li>
 
         {CreateLink("/aboutPage", "Docs")}
 
-        {CreateLink("/mint", "Mint Tickets")}
+        {CreateLink("/mint", "Invest")}
 
         {/* {transversalData.loggedIn && CreateLink("/landsPage", "Lands")} */}
 

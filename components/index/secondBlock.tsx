@@ -1,8 +1,23 @@
 import { Canvas } from "@react-three/fiber";
 import React, { Suspense } from "react";
 import RegularCard from "../../assets/Models/RegularCard";
+import Image from "next/image";
+
+// Logos
+import BBLogo from "../../assets/Images/Partners/BBLogo.jpeg";
+import CALogo from "../../assets/Images/Partners/CALogo.jpeg";
+import EBLogo from "../../assets/Images/Partners/EBLogo.jpeg";
+import STCLogo from "../../assets/Images/Partners/STCLogo.jpeg";
 
 const SecondBlock: React.FC = () => {
+  const createLogo = (img: StaticImageData, logoName: string) => {
+    return (
+      <div className="PartnersLogoContainer">
+        <Image src={img} alt={logoName} />
+      </div>
+    );
+  };
+
   return (
     <section className="SecondBlock" id="SecondBlock">
       <div className="mainContainer">
@@ -33,9 +48,12 @@ const SecondBlock: React.FC = () => {
       </div>
 
       <div className="bottomContainer">
+        <h1>Partners</h1>
         <div className="slider">
-          <h2>Future</h2>
-          <h2>Partners</h2>
+          {createLogo(BBLogo, "BBLogo")}
+          {createLogo(CALogo, "CALogo")}
+          {createLogo(EBLogo, "EBLogo")}
+          {createLogo(STCLogo, "STCLogo")}
         </div>
       </div>
     </section>

@@ -19,7 +19,7 @@ const LogRegisterPage: NextPage = () => {
   const [formDisplayed, setFormDisplayed] = useState<FormDisplayed>("Log In");
   const [passwordState, setPasswordState] = useState<PasswordState>("Hidden");
   const [passwordState2, setPasswordState2] = useState<PasswordState>("Hidden");
-  const { transversalData } = useContext(DataContext);
+  const { transversalData, setTransversalData } = useContext(DataContext);
 
   const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
@@ -148,9 +148,10 @@ const LogRegisterPage: NextPage = () => {
               theme: "light",
               isLoading: false,
             });
+            setTransversalData({ ...transversalData, loggedIn: true });
             setTimeout(() => {
               router.push("/dashboard");
-            }, 5500);
+            }, 1000);
           } else {
             toast.update(id, {
               position: "top-left",
@@ -202,10 +203,10 @@ const LogRegisterPage: NextPage = () => {
             });
             setTimeout(() => {
               toast.success("You can now Log In!", { position: "top-right" });
-            }, 3500);
+            }, 1000);
             setTimeout(() => {
               ChangeFormDisplayed("Log In");
-            }, 4500);
+            }, 1500);
           } else if (response.data.status === 500) {
             toast.update(id, {
               position: "top-left",

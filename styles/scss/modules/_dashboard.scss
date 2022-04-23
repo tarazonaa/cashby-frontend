@@ -221,7 +221,7 @@
             }
 
             .button {
-              @include GenericButtonStyle(var(--SecondaryColor));
+              @include GenericButtonStyle(var(--PrimaryColor), var(--BGColor));
               @include alignCenter;
               margin: 0;
               padding: 0;

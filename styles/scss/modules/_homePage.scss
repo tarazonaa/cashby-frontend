@@ -1,9 +1,9 @@
 @keyframes slideRight {
   from {
-    transform: translateX(-80%);
+    transform: translateX(-120%);
   }
   to {
-    transform: translateX(80%);
+    transform: translateX(100%);
   }
 }
 
@@ -27,7 +27,6 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: transparent;
       @include alignCenter;
       justify-content: flex-end;
       left: 200px;
@@ -37,6 +36,7 @@
       }
 
       svg {
+        fill: var(--TextGenericColor);
         opacity: 0.1;
         background-color: transparent;
       }
@@ -215,11 +215,11 @@
           font-weight: bolder;
 
           &:nth-child(1) {
-            @include GenericButtonStyle(var(--TertiaryColor));
+            @include GenericButtonStyle(var(--TertiaryColor), var(--BGColor));
           }
 
           &:nth-child(2) {
-            @include GenericButtonStyle(var(--PrimaryColor));
+            @include GenericButtonStyle(var(--PrimaryColor), var(--BGColor));
           }
         }
       }
@@ -230,18 +230,19 @@
     @include alignCenter;
     flex-direction: column;
     justify-content: space-evenly;
-    background: #d9d6d6; /* fallback for old browsers */
+    background: var(--BGColor); /* fallback for old browsers */
+    box-shadow: 0px -20px 50px 40px var(--BGColor);
     background: -webkit-linear-gradient(
       to bottom,
-      #d9d6d6,
-      #e7e5c5,
-      #d9d6d6
+      var(--BGColor),
+      var(--HomeLightColor1),
+      var(--BGColor)
     ); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(
       to bottom,
-      #d9d6d6,
-      #e7e5c5,
-      #d9d6d6
+      var(--BGColor),
+      var(--HomeLightColor1),
+      var(--BGColor)
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     .mainContainer,
@@ -291,14 +292,27 @@
 
     .bottomContainer {
       position: relative;
+      border-bottom: 2px solid white;
+      border-top: 2px solid white;
       overflow: hidden;
       height: 18%;
-      // background: linear-gradient(
-      //   to right,
-      //   var(--PrimaryColor),
-      //   var(--TertiaryColor)
-      // );
-      border: 1px solid white;
+      border-bottom: 1px solid var(--SecondaryColor);
+      border-top: 1px solid var(--SecondaryColor);
+      @include alignCenter;
+      flex-direction: row;
+
+      h1 {
+        position: relative;
+        @include GradientColorText(
+          var(--TertiaryColor),
+          var(--PrimaryColor),
+          right
+        );
+        z-index: 1;
+        margin: auto 0;
+        margin-left: clamp(10px, 2vw, 30px);
+        width: 30%;
+      }
 
       .slider {
         position: relative;
@@ -306,15 +320,23 @@
         width: 150%;
         @include alignCenter;
         flex-direction: row;
-        animation: slideRight 10s linear infinite forwards;
+        animation: slideRight 15s linear infinite forwards;
         background-color: transparent;
+        justify-content: space-around;
 
-        > * {
-          height: 100%;
-          margin: 0px 20px;
-          padding: 0px 20px;
-          // border: 1px solid lightcoral;
+        .PartnersLogoContainer {
+          position: relative;
+          width: clamp(40px, 10vw, 100px);
+          height: clamp(40px, 10vw, 100px);
+          border-radius: 50%;
+          border: 2px solid var(--SecondaryColor);
+          overflow: hidden;
           @include alignCenter;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
     }
@@ -324,18 +346,18 @@
     display: flex;
     flex-wrap: wrap;
 
-    background: #ebd9d5; /* fallback for old browsers */
+    background: var(--HomeLightColor2); /* fallback for old browsers */
     background: -webkit-linear-gradient(
       to bottom,
-      #d9d6d6,
-      #ebd9d5,
-      #d9d6d6
+      var(--BGColor),
+      var(--HomeLightColor2),
+      var(--BGColor)
     ); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(
       to bottom,
-      #d9d6d6,
-      #ebd9d5,
-      #d9d6d6
+      var(--BGColor),
+      var(--HomeLightColor2),
+      var(--BGColor)
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     .leftContainer,
@@ -490,18 +512,18 @@
     flex-direction: column;
     justify-content: space-evenly;
     overflow: hidden;
-    background: #cae7e3; /* fallback for old browsers */
+    background: var(--HomeLightColor3); /* fallback for old browsers */
     background: -webkit-linear-gradient(
       to bottom,
-      #d9d6d6,
-      #cae7e3,
-      #d9d6d6
+      var(--BGColor),
+      var(--HomeLightColor3),
+      var(--BGColor)
     ); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(
       to bottom,
-      #d9d6d6,
-      #cae7e3,
-      #d9d6d6
+      var(--BGColor),
+      var(--HomeLightColor3),
+      var(--BGColor)
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     h1 {
@@ -567,6 +589,7 @@
 
             p {
               font-size: 1rem;
+              line-height: 5px;
               color: black;
             }
 
@@ -699,7 +722,7 @@
     @include alignCenter;
     flex-direction: column;
     justify-content: space-between;
-    height: 400px;
+    height: 600px;
     margin-top: clamp(10px, 5vw, 100px);
 
     .listsContainer {
@@ -708,30 +731,87 @@
       display: flex;
       flex-wrap: wrap;
 
-      ul {
+      .SocialsTitleContainer {
         flex: 1 1;
-        list-style: none;
-        display: flex;
+        flex-basis: 400px;
+        border: 1px solid var(--SecondaryColor);
+        border-left: 1px solid transparent;
+        @include alignCenter;
+      }
+
+      .SocialsContainer {
+        position: relative;
+        flex: 1 1;
+        flex-basis: 400px;
+        @include alignCenter;
         flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
 
-        h3 {
-          margin-bottom: 20px;
-          @include GradientColorText(
-            var(--PrimaryColor),
-            var(--TertiaryColor),
-            top
-          );
-        }
+        .SCTTopBox,
+        .SCTBottomBox {
+          position: relative;
+          width: 100%;
+          height: 50%;
+          @include alignCenter;
+          flex-direction: row;
+          justify-content: space-evenly;
 
-        li {
-          cursor: pointer;
-          &:hover {
-            color: var(--SecondaryColor);
+          .SocialLink {
+            position: relative;
+            width: clamp(40px, 10vw, 70px);
+            height: clamp(40px, 10vw, 70px);
+            cursor: pointer;
+
+            svg {
+              width: 100%;
+              height: 100%;
+              fill: var(--TextGenericColor);
+              transition: fill 250ms;
+            }
+
+            &:hover {
+              svg {
+                transition: fill 250ms;
+              }
+              #twitter {
+                fill: rgb(42, 208, 234);
+              }
+              #instagram {
+                fill: rgb(223, 42, 81);
+              }
+              #youtube {
+                fill: rgb(40, 196, 141);
+              }
+              #discord {
+                fill: rgb(157, 42, 234);
+              }
+            }
           }
         }
       }
+      // ul {
+      //   flex: 1 1;
+      //   list-style: none;
+      //   display: flex;
+      //   flex-direction: column;
+      //   justify-content: space-around;
+      //   align-items: center;
+
+      //   h3 {
+      //     margin-bottom: 20px;
+      //     @include GradientColorText(
+      //       var(--PrimaryColor),
+      //       var(--TertiaryColor),
+      //       top
+      //     );
+      //   }
+
+      //   li {
+      //     cursor: pointer;
+      //     &:hover {
+      //       color: var(--SecondaryColor);
+      //     }
+      //   }
+      // }
     }
 
     .Footersfooter {
