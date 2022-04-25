@@ -492,6 +492,12 @@
     justify-content: space-around;
     align-content: center;
     flex-direction: row;
+    background: linear-gradient(
+      to bottom,
+      #d9d6d6,
+      #ebd9d5,
+      #d9d6d6
+    ); 
     .photosContainer {
       overflow-y: scroll;
       flex-direction: column;
@@ -500,15 +506,14 @@
         border: #cae7e3;
         border-radius: 10px;
         overflow: auto;
-        background-color: lightblue;
-        height: 400px;
+        background-color: whitesmoke;
         width: 400px;
         margin-bottom: 10px;
       }
       .nameContainer {
         display: flex;
         flex: row wrap;
-        background-color: white;
+        background-color: whitesmoke;
         height: 40px;
         padding: 5px;
         a {
@@ -521,7 +526,24 @@
           margin: 5px;
         }
       }
+      .iconsContainer {
+        overflow: hidden;
+        height: 40px;
+        display:flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        color:black;
+        div {
+          display: flex;
+          flex: row wrap;
+        }
+        svg {
+          margin: 12px;
+        }
+      }
     }
+
     .right-side {
       margin-bottom: 50px;
       display: inline-block;
