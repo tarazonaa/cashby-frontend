@@ -507,6 +507,75 @@
     }
   }
 
+  .PhotoBlock {
+    @include alignCenter;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-around;
+    align-content: center;
+    flex-direction: row;
+    background: linear-gradient(
+      to bottom,
+      #d9d6d6,
+      #ebd9d5,
+      #d9d6d6
+    ); 
+    .photosContainer {
+      overflow-y: scroll;
+      flex-direction: column;
+      height: 75%;
+      .photoContainer {
+        cursor: pointer;
+        border: #cae7e3;
+        border-radius: 10px;
+        overflow: auto;
+        background-color: whitesmoke;
+        width: 400px;
+        margin-bottom: 10px;
+      }
+      .nameContainer {
+        display: flex;
+        flex: row wrap;
+        background-color: whitesmoke;
+        height: 40px;
+        padding: 5px;
+        p {
+          margin-left: 5px;
+          align-self: center;
+        }
+        .logo {
+          background-color: #3773a5;
+          border-radius: 50%;
+          margin: 5px;
+        }
+      }
+      .iconsContainer {
+        overflow: hidden;
+        height: 40px;
+        display:flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        color:black;
+        div {
+          display: flex;
+          flex: row wrap;
+        }
+        svg {
+          margin: 12px;
+        }
+      }
+    }
+
+    .right-side {
+      margin-bottom: 50px;
+      display: inline-block;
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+
   .TeamBlock {
     @include alignCenter;
     flex-direction: column;
