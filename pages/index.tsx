@@ -11,6 +11,7 @@ import SecondBlock from "../components/index/secondBlock";
 import ThirdBlock from "../components/index/thirdBlock";
 import TeamBlock from "../components/index/TeamBlock";
 import Footer from "../components/index/footer";
+import PhotoBlock from "../components/index/photosBlock";
 
 const Home: NextPage = () => {
   const { transversalData, setTransversalData } = useContext(DataContext);
@@ -50,6 +51,7 @@ const Home: NextPage = () => {
       <InitBlock />
       <SecondBlock />
       <ThirdBlock />
+      <PhotoBlock />
       <TeamBlock />
       <Footer />
     </div>
