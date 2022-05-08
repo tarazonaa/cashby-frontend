@@ -323,20 +323,27 @@
         animation: slideRight 15s linear infinite forwards;
         background-color: transparent;
         justify-content: space-around;
+        pointer-events: none;
 
         .PartnersLogoContainer {
           position: relative;
+          pointer-events: auto;
           width: clamp(40px, 10vw, 100px);
           height: clamp(40px, 10vw, 100px);
           border-radius: 50%;
           border: 2px solid var(--SecondaryColor);
           overflow: hidden;
+          cursor: pointer;
           @include alignCenter;
 
           img {
             width: 100%;
             height: 100%;
           }
+        }
+
+        &:hover {
+          animation-play-state: paused;
         }
       }
     }

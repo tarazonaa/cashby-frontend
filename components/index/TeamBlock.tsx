@@ -82,7 +82,7 @@ const TeamBlock: React.FC = () => {
           linkedin: "https://www.linkedin.com/in/jesusmunoz/",
         })}
         {CreateTeamMember("Adrián Hernandez", "CTO", Adrian, {
-          instagram: "",
+          instagram: "https://www.instagram.com/adrih_io/",
           twitter: "",
           linkedin: "",
         })}
@@ -94,7 +94,7 @@ const TeamBlock: React.FC = () => {
         })}
         {CreateTeamMember("Rafael Esquivel", "CEO", Rafa, {
           instagram: "",
-          twitter: "https://twitter.com/rafikis_room",
+          twitter: "https://www.instagram.com/esquivel_io/",
           linkedin: "https://www.linkedin.com/in/rafael-esquivel/",
         })}
         {CreateTeamMember("Joel Martínez", "CMO", Joel, {

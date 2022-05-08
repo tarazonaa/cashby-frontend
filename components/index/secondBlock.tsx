@@ -8,12 +8,13 @@ import BBLogo from "../../assets/Images/Partners/BBLogo.jpeg";
 import CALogo from "../../assets/Images/Partners/CALogo.jpeg";
 import EBLogo from "../../assets/Images/Partners/EBLogo.jpeg";
 import STCLogo from "../../assets/Images/Partners/STCLogo.jpeg";
+import FMLogo from "../../assets/Images/Partners/FMLogo.jpeg";
 
 const SecondBlock: React.FC = () => {
-  const createLogo = (img: StaticImageData, logoName: string) => {
+  const createLogo = (img: StaticImageData, logoName: string, url: string) => {
     return (
       <div className="PartnersLogoContainer">
-        <Image src={img} alt={logoName} />
+        <Image onClick={() => window.open(url)} src={img} alt={logoName} />
       </div>
     );
   };
@@ -50,10 +51,31 @@ const SecondBlock: React.FC = () => {
       <div className="bottomContainer">
         <h1>Partners</h1>
         <div className="slider">
-          {createLogo(BBLogo, "BBLogo")}
-          {createLogo(CALogo, "CALogo")}
-          {createLogo(EBLogo, "EBLogo")}
-          {createLogo(STCLogo, "STCLogo")}
+          {createLogo(
+            BBLogo,
+            "BBLogo",
+            "https://bullground.mx/?utm_source=null&utm_medium=null&utm_campaign=null"
+          )}
+          {createLogo(
+            CALogo,
+            "CALogo",
+            "https://www.instagram.com/charlie_azpeytia/?igshid=YmMyMTA2M2Y="
+          )}
+          {createLogo(
+            EBLogo,
+            "EBLogo",
+            "https://www.instagram.com/miguel.berpu/?igshid=YmMyMTA2M2Y="
+          )}
+          {createLogo(
+            STCLogo,
+            "STCLogo",
+            "https://www.instagram.com/smarttrainingclub/?igshid=YmMyMTA2M2Y="
+          )}
+          {createLogo(
+            FMLogo,
+            "FMLogo",
+            "https://www.instagram.com/smarttrainingclub/?igshid=YmMyMTA2M2Y="
+          )}
         </div>
       </div>
     </section>
