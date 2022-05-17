@@ -2,6 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import React, { Suspense } from "react";
 import RegularCard from "../../assets/Models/RegularCard";
 import Image from "next/image";
+import { StaticImageData } from "next/image";
 
 // Logos
 import BBLogo from "../../assets/Images/Partners/BBLogo.jpeg";
