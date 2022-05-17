@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { motion } from "framer-motion";
 import { FadeInTransitionVariants } from "../constants";
 import Image from "next/image";
+import { StaticImageData } from "next/image";
 
 import realEstate1 from "../assets/Images/realEstate1.jpeg";
 import realEstate2 from "../assets/Images/realEstate2.jpeg";
