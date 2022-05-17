@@ -10,6 +10,7 @@ import Rafa from "../../assets/Images/TeamMembers/Rafa.jpeg";
 import Marco from "../../assets/Images/TeamMembers/Marco.png";
 import Joel from "../../assets/Images/TeamMembers/Joel.png";
 import img from "../../assets/Images/logoCashby.png";
+import { StaticImageData } from "next/image";
 
 const TeamBlock: React.FC = () => {
   const CreateTeamMember = (
