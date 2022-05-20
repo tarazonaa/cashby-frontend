@@ -5,21 +5,37 @@ import Image from "next/image";
 import Post1 from "../assets/Images/InstaPhotos/post1.gif";
 
 const mintPage: NextPage = () => {
-  const landDiv = (img: any, name: string, ) => {
+  const createLand = (img: any, name: string, loc: string) => {
     return (
       <div className="investingContainer">
         <div className="titleContainer">
         <h1 className="investingTitle">{name}</h1>
         </div>
         <p className="infoText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolores eaque, debitis dolor animi dignissimos aliquam.</p>
-        <div className="imageHeader">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, necessitatibus.</div>
+        <p className="landLoc">{loc}</p>
+        <div className="imageHeader">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, suscipit.
+        </div>
         <Image src={img} alt={"Image of land"}/>
-        <button className="mintButton"
-        onClick={() =>
-          window.open("https://musing-kowalevski-d5633e.netlify.app/", "_blank")
-        }
-      >{"Invest Now"}</button>
-
+        <div className="infoContainer">
+          <p>{"89%"}</p>
+          <p>{"44%"}</p>
+          <p>{"23%"}</p>
+        </div>
+        <div className="timeToInvest">
+          {"43 days remaining to invest!"}
+        </div>
+        <div className="buttonDiv"><button className="infoButton"
+          onClick={() =>
+            window.open("https://musing-kowalevski-d5633e.netlify.app/", "_blank")
+          }
+        >{"Know More"}</button>
+          <button className="mintButton"
+          onClick={() =>
+            window.open("https://musing-kowalevski-d5633e.netlify.app/", "_blank")
+          }
+        >{"Invest Now"}</button></div>
+          
       </div>
     );
   }
@@ -33,9 +49,9 @@ const mintPage: NextPage = () => {
       animate="animate"
       exit="exit"
     >
-      {landDiv(Post1, "Pink place in sector #32")}
-      {landDiv(Post1, "Pink place in sector #32")}
-      {landDiv(Post1, "Pink place in sector #32")}
+      {createLand(Post1, "Pink place in sector #32", "Mty, México")}
+      {createLand(Post1, "Pink place in sector #32", "Mty, México")}
+      {createLand(Post1, "Pink place in sector #32", "Mty, México")}
     </motion.div>
   );
 };
