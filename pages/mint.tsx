@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { motion } from "framer-motion";
 import { FadeInTransitionVariants } from "../constants";
 import Image from "next/image";
-import Post1 from "../assets/Images/InstaPhotos/post1.gif";
+import LAND1 from "../assets/Images/LAND/LAND1.jpg";
 
 const mintPage: NextPage = () => {
   const createLand = (img: any, name: string, loc: string) => {
@@ -18,12 +18,14 @@ const mintPage: NextPage = () => {
         </div>
         <Image src={img} alt={"Image of land"}/>
         <div className="infoContainer">
-          <p>{"89%"}</p>
-          <p>{"44%"}</p>
-          <p>{"23%"}</p>
+          <p>89%</p>
+          <p>44%</p>
+          <p>23%</p>
         </div>
         <div className="timeToInvest">
-          {"43 days remaining to invest!"}
+          <p>
+            43 days remaining to invest!
+          </p>
         </div>
         <div className="buttonDiv"><button className="infoButton"
           onClick={() =>
@@ -45,13 +47,13 @@ const mintPage: NextPage = () => {
       className="mintPage"
       id="LinkPage"
       variants={FadeInTransitionVariants}
-      initial="initial"
-      animate="animate"
+      initial={{scale:0}}
+      animate={{scale:1}}
       exit="exit"
     >
-      {createLand(Post1, "Pink place in sector #32", "Mty, México")}
-      {createLand(Post1, "Pink place in sector #32", "Mty, México")}
-      {createLand(Post1, "Pink place in sector #32", "Mty, México")}
+      {createLand(LAND1, "Pink place in sector #32", "Mty, México")}
+      {createLand(LAND1, "Pink place in sector #32", "Mty, México")}
+      {createLand(LAND1, "Pink place in sector #32", "Mty, México")}
     </motion.div>
   );
 };

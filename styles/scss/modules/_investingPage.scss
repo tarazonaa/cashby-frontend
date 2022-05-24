@@ -76,8 +76,11 @@
         }
     }
     .timeToInvest {
-        margin: 15px 0px 15px 0px;
+        margin: 0px 0px 0px 0px;
         font-size: 15px;
+        p {
+            font-size: 12px;
+        }
     }
     .buttonDiv {
         height: 75px;
