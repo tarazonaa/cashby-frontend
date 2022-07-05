@@ -3,8 +3,8 @@ import React from "react";
 import Image from "next/image";
 
 // Team Member Photos
-import Isma from "../../assets/Images/TeamMembers/Isma.jpeg";
 import Adrian from "../../assets/Images/TeamMembers/Adrian.jpeg";
+import Andres from "../../assets/Images/TeamMembers/Andres.png";
 import Jesus from "../../assets/Images/TeamMembers/Jesus.jpg";
 import Rafa from "../../assets/Images/TeamMembers/Rafa.jpeg";
 import Marco from "../../assets/Images/TeamMembers/Marco.png";
@@ -87,14 +87,8 @@ const TeamBlock: React.FC = () => {
           twitter: "",
           linkedin: "",
         })}
-        {CreateTeamMember("Ismael Muñoz", "FE Developer", Isma, {
-          instagram: "https://www.instagram.com/isma.mzco/?hl=es",
-          twitter: "https://twitter.com/IsmaelMuozCont1",
-          linkedin:
-            "https://www.linkedin.com/in/ismael-muñoz-contreras-9b7700210/",
-        })}
         {CreateTeamMember("Rafael Esquivel", "CEO", Rafa, {
-          instagram: "",
+          instagram: "https://www.instagram.com/esquivel_io/",
           twitter: "https://www.instagram.com/esquivel_io/",
           linkedin: "https://www.linkedin.com/in/rafael-esquivel/",
         })}
@@ -108,6 +102,12 @@ const TeamBlock: React.FC = () => {
           twitter: "https://twitter.com/xMarcoAx",
           linkedin:
             "https://www.linkedin.com/in/marco-antonio-vázquez-espinosa-938728231/",
+        })}
+        {CreateTeamMember("Andrés Tarazona", "Frontend Developer", Andres, {
+          instagram: "https://www.instagram.com/serdna_music/",
+          twitter: "https://twitter.com/AndyTarazona",
+          linkedin: 
+            "https://www.linkedin.com/in/andres-tarazona-338380173/",
         })}
       </div>
     </section>

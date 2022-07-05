@@ -51,7 +51,7 @@ const Home: NextPage = () => {
       <InitBlock />
       <SecondBlock />
       <ThirdBlock />
-      <PhotoBlock />
+      {/* <PhotoBlock /> */}
       <TeamBlock />
       <Footer />
     </div>
