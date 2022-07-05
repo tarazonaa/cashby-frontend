@@ -4,7 +4,7 @@ import Image from "next/image";
 
 // Team Member Photos
 import Adrian from "../../assets/Images/TeamMembers/Adrian.jpeg";
-import Andres from "../../assets/Images/TeamMembers/Andres.png";
+import Andres from "../../assets/Images/TeamMembers/Andres.jpg";
 import Jesus from "../../assets/Images/TeamMembers/Jesus.jpg";
 import Rafa from "../../assets/Images/TeamMembers/Rafa.jpeg";
 import Marco from "../../assets/Images/TeamMembers/Marco.png";
