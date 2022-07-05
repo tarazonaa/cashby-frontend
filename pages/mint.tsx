@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
 import { motion } from "framer-motion";
 import { FadeInTransitionVariants } from "../constants";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import LAND1 from "../assets/Images/LAND/LAND1.jpg";
 
 const mintPage: NextPage = () => {
-  const createLand = (img: any, name: string, loc: string) => {
+  const createLand = (img: StaticImageData, name: string, loc: string): JSX.Element => {
     return (
       <div className="investingContainer">
         <div className="titleContainer">
@@ -16,7 +16,7 @@ const mintPage: NextPage = () => {
         <div className="imageHeader">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, suscipit.
         </div>
-        <Image src={img} alt={"Image of land"}/>
+        <Image src={img} height={img.height} width={img.width} alt={"Image of land"}/>
         <div className="infoContainer">
           <p>89%</p>
           <p>44%</p>

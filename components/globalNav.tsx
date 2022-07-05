@@ -236,6 +236,7 @@ const GlobalNav: React.FC = () => {
         </li>
 
         {CreateLink("/aboutPage", "Docs")}
+        {CreateLink("/educationPage", "Education")}
 
         {CreateLink("/mint", "Invest")}
 
