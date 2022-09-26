@@ -1,0 +1,14 @@
+.educationPage {
+    @include alignCenter;
+    flex-direction: column;
+    .educationBooks {
+        @include alignCenter;
+        flex-direction: row;
+        .educationBook {
+            margin: 0px 35px 40px 35px;
+        } 
+    }
+    .educationBanner {
+        flex-direction: row;
+    }
+}
