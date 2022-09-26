@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 // Themes (Global variables used for theme and styling)
 @import "./themes/functions";
 @import "./themes/colors";
