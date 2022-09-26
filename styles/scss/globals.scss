@@ -2,6 +2,10 @@
 // @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200&family=Cairo&family=Lato:wght@300&family=Rajdhani:wght@300&family=Source+Code+Pro:wght@600&family=Ubuntu+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&family=Staatliches&display=swap");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import "./themes/colors";
 @import "./themes/functions";
 
