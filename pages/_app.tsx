@@ -15,7 +15,7 @@ import { ToastContainer } from "react-toastify";
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <DataContextProvider>
-      <GlobalNav />
+      {router.pathname !== "/" ? <GlobalNav /> : null  }
       <ToastContainer />
       <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} key={router.route} />
