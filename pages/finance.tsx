@@ -18,7 +18,7 @@ const Home: NextPage = () => {
 
   return (
     <div
-      className="IndexPage"
+      className="FinancePage"
       id="LinkPage"
       onScroll={(e) => {
         if (
